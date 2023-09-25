@@ -29,6 +29,12 @@ connection.once("open", () => { //create function using arrow sign
 
 });
 
+//After creating student.js routes file so now you need to access the routes files ,student.js
+
+const studentRouter = require("./routes/Course_Creation_and_Management/course.js");
+
+app.use("/Course_Creation_and_Management/course", studentRouter);
+
 //last step is now we got to run this connection in port after the mongodb is runing
 app.listen(PORT, () => {
     console.log(`Server is up and running on port number: ${PORT}`)
