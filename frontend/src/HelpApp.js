@@ -23,7 +23,7 @@ function HelpApp() {
           <Route path='/FAQ' exact element = {<FAQ/>}/>
           <Route path="/TicketDetail/:id" exact element={<TicketDetail/>} />
         </Routes>
-        <Chat/>
+        
     </BrowserRouter>
   );
 }

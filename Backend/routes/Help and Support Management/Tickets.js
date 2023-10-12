@@ -1,5 +1,5 @@
 const router = require("express").Router()
-let Ticket = require("../models/TicketModel")
+let Ticket = require("../../models/Help and Support Management/TicketModel")
 
 //  add data
 router.route("/add").post((req, res) => {

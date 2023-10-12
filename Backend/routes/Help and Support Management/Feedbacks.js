@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Feedback = require("../models/FeedbackModel");
+const Feedback = require("../../models/Help and Support Management/FeedbackModel");
 
 // Add data
 router.route("/add").post((req, res) => {

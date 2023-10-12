@@ -45,10 +45,10 @@ const reportRouter = require('./routes/TransportationManagement/report');
 app.use('/report', reportRouter);
 
 
-const feedbackRouter = require("./routes/Feedbacks")
+const feedbackRouter = require("./routes/Help and Support Management/Feedbacks")
 app.use("/feedback",feedbackRouter)
 
-const ticketRouter = require("./routes/Tickets")
+const ticketRouter = require("./routes/Help and Support Management/Tickets")
 app.use("/ticket",ticketRouter)
 
 
