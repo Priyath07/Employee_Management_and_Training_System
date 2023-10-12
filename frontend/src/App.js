@@ -20,8 +20,24 @@ import Ticket from './Help and Support Management/components/Ticket/Ticket';
 import AllTickets from './Help and Support Management/components/Ticket/AllTickets';
 import TicketDetail from './Help and Support Management/components/Ticket/TicketDetail';
 import FAQ from './Help and Support Management/components/Faq/FAQ';
-
 import Chat from './Help and Support Management/components/Chat';
+
+//attendance
+import Leave from './Attendance and Leave Management/components/leave/Leave';
+import Attendance from './Attendance and Leave Management/components/attendance/attendance';
+import HRleave from './Attendance and Leave Management/components/HRleave';
+import AttendanceForm from './Attendance and Leave Management/components/attendance/AttendanceForm';
+import AttendanceSheet from './Attendance and Leave Management/components/attendance/AttendanceSheet';
+import ApprovedMedicFront from './Attendance and Leave Management/components/leave/ApprovedMedicFront';
+import OffTimeForm from './Attendance and Leave Management/components/attendance/OffTimeForm';
+import OffTimeTable from './Attendance and Leave Management/components/attendance/OffTimeTable';
+import ApprovedHalfDayFront from './Attendance and Leave Management/components/leave/ApprovedHalfDayLvFront';
+import ApprovedDutyLvFront from './Attendance and Leave Management/components/leave/ApprovedDutyLvFront';
+import HRfront from './Attendance and Leave Management/components/HRfront';
+import LeaveHistoryFront from './Attendance and Leave Management/components/leave/LeaveHistoryFront';
+import LeaveHistory from './Attendance and Leave Management/components/leave/LeaveHistory';
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -47,8 +63,21 @@ function App() {
           <Route path='/AllTickets' exact element = {<AllTickets/>}/>
           <Route path='/FAQ' exact element = {<FAQ/>}/>
           <Route path="/TicketDetail/:id" exact element={<TicketDetail/>} />
-       
-          
+ {/* Attendance */}
+        <Route path='/Attendance' exact element={<Attendance/>}/>
+        <Route path='/leave/Leave' exact element={<Leave/>}/>
+        <Route path='/HRleave' exact element={<HRleave/>}/>
+        <Route path='/AttendanceForm' exact element={<AttendanceForm/>}/>
+        <Route path='/AttendanceSheet' exact element={<AttendanceSheet/>}/>
+        <Route path='/AM' exact element={<ApprovedMedicFront/>}/>
+        <Route path='/OffTimeadd' exact element={<OffTimeForm/>}/>
+        <Route path='/offTimeDis' exact element={<OffTimeTable/>}/>
+        <Route path='/HDdis' exact element={<ApprovedHalfDayFront/>}/>
+        <Route path='/addHD' exact element={<ApprovedHalfDayFront/>}/>
+        <Route path='/DL' exact element={<ApprovedDutyLvFront/>}/>
+        <Route path= '/HRfront' exact element={<HRfront/>}/>
+        <Route path= '/LeaveHistoryFront' exact element={<LeaveHistoryFront/>}/>
+        <Route path= '/leave/LeaveHistory' exact element={<LeaveHistory/>}/>
           
         </Routes>
         <Chat/>
