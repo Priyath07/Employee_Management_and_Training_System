@@ -1,0 +1,119 @@
+/* Style for the container */
+.feedback-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the heading */
+.feedback-container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Style for the table container */
+.table-container {
+  overflow-x: auto; /* Add a horizontal scrollbar when table overflows */
+}
+
+/* Style for the table */
+.Feedback-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.Feedback-table th,
+.Feedback-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+ 
+}
+
+.Feedback-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  color: black;
+}
+.Feedback-table tbody tr {
+  background-color: #fff; /* Set the background color to white */
+  color: #000; /* Set the text color to black */
+}
+
+/* Style for row hover effect */
+.Feedback-table tr:hover {
+  background-color: none; /* Set the background color for row hover effect */
+}
+/* CSS for the feedback counts section */
+.feedback-counts {
+  margin-top: 20px; /* Add some top margin to separate it from other content */
+}
+
+/* Style for the subject heading (e.g., Support, Transport, Courses) */
+.feedback-counts h3 {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+/* Style for the individual feedback type counts (e.g., Good, Bad) */
+.feedback-counts p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.feedback-counts h2{
+  text-align: center;
+  font-weight: bold;
+  font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+/* Responsive styles for smaller screens (adjust breakpoints as needed) */
+@media (max-width: 768px) {
+  .feedback-counts h3 {
+    font-size: 16px; /* Decrease font size for smaller screens */
+  }
+
+  .feedback-counts p {
+    font-size: 14px; /* Decrease font size for smaller screens */
+  }
+
+  .pie-chart-container {
+    margin-top: 10px; /* Decrease top margin for smaller screens */
+  }
+}
+/* Style for the feedback counts section */
+.feedback-counts {
+  margin: 20px auto; /* Center the section horizontally */
+  max-width: 800px; /* Limit the maximum width of the section */
+  padding: 20px;
+  border: 1px solid #ccc; /* Add a border around the section */
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  background-color: #fff; /* Set a white background color */
+}
+
+/* Style for the subject heading (e.g., Support, Transport, Courses) */
+.feedback-counts h3 {
+  font-size: 22px;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+/* Style for the individual feedback type counts (e.g., Good, Bad) */
+.feedback-counts p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+/* Style for the pie chart container */
+.pie-chart-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #000;
+}

@@ -1,0 +1,74 @@
+
+  .Support-Page-Container {
+    background-image: url('./images/BGimage.jpg'); /* Replace with the actual path to your image */
+    background-size: cover; /* Adjust as needed */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 1.0; /* Set the opacity value you desire (0.0 to 1.0) */
+  }
+  
+  .Support-Page-Container {
+    max-width: 100%;
+    display: flex;
+  }
+  
+  .content {
+    display: flex;
+    align-items: left;
+    justify-content: center;
+  }
+  
+  .text {
+    max-width: 100%; /* Adjust the max-width as needed */
+  }
+  
+  .text-Body {
+    width: 100%; /* Set the width of the image */
+    height: auto; /* Allow the height to adjust automatically */
+    margin-top: 20px; /* Adjust margin for better alignment */
+    margin-left: 100px;
+  }
+  
+  .shuttle-image {
+    width: 100%; /* Set a max width to control the size on smaller screens */
+    height: auto; /* Allow the height to adjust automatically */
+    position: relative; /* Remove absolute positioning */
+    margin: auto; /* Center the image horizontally and vertically */
+  }
+  
+  .shuttle-image2,
+  .shuttle-image3,
+  .shuttle-image4 {
+    width: 80%; /* Adjust the width for smaller screens */
+    height: auto; /* Allow the height to adjust automatically */
+    position: relative; /* Remove absolute positioning */
+    margin: auto; /* Center the image horizontally and vertically */
+  }
+  
+  .container h1 {
+    font-weight: bold;
+  }
+  
+  .container p {
+    font-weight: bold;
+  }
+  
+  /* Add responsive styles as needed */
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column; /* On smaller screens, stack the content vertically */
+    }
+  
+    .text {
+      max-width: 100%; /* On smaller screens, let the text occupy the full width */
+    }
+  
+    .shuttle-image {
+      width: 100%; /* Set a max width to control the size on smaller screens */
+      height: auto; /* Allow the height to adjust automatically */
+      position: relative; /* Remove absolute positioning */
+      margin: auto; /* Center the image horizontally and vertically */
+      margin-top: 20px; /* Adjust margin for better alignment */
+    }
+  }
+  

@@ -44,6 +44,14 @@ app.use('/apply', applyRouter);
 const reportRouter = require('./routes/TransportationManagement/report');
 app.use('/report', reportRouter);
 
+
+const feedbackRouter = require("./routes/Feedbacks")
+app.use("/feedback",feedbackRouter)
+
+const ticketRouter = require("./routes/Tickets")
+app.use("/ticket",ticketRouter)
+
+
 // Multer file upload
 const upload = multer({ storage: storage });
 
