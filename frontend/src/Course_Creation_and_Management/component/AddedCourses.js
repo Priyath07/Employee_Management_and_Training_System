@@ -111,8 +111,8 @@ export default function AddedCourses() {
                 <MDBCardBody>
                   <MDBCardTitle>{course.courseName}</MDBCardTitle>
                   <MDBCardText>
-                    <div>Course ID: {course.courseID}</div>
-                    <div>Description: {course.description}</div>
+                    <div>Course ID: {course.courseID}</div><br></br>
+                    <div>Description: {course.description}</div><br></br>
                     <div>Duration: {course.duration}</div>
                     <div>Price: ${course.price}</div>
                     <div>Lecture Name: {course.lectureName}</div>

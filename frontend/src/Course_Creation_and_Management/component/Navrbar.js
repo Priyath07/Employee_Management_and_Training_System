@@ -1,13 +1,49 @@
-import React from "react";
+//import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Navrbar() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [sortField, setSortField] = useState(""); // Field to sort by
+
+  // Handle form submission
+  const handleSearch = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Send a GET request to your server's search route
+      const response = await fetch(`/api/course/search?query=${searchQuery}`);
+      if (response.ok) {
+        const data = await response.json();
+        setSearchResults(data.results);
+      }
+    } catch (error) {
+      console.error("Error searching courses:", error);
+    }
+  };
+
+  // Handle sorting
+  const handleSort = async (field) => {
+    try {
+      // Send a GET request to your server's sort route
+      const response = await fetch(`/api/course/sort/${field}`);
+      if (response.ok) {
+        const data = await response.json();
+        setSearchResults(data.courses);
+        setSortField(field);
+      }
+    } catch (error) {
+      console.error("Error sorting courses:", error);
+    }
+  };
+
   return (
     <div>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            EnterPrice Pro
+            EnterPrise Pro
           </a>
           <button
             class="navbar-toggler"
@@ -37,31 +73,34 @@ function Navrbar() {
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
-                  href="#"
+                  href="/lectureProfile"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Dropdown
+                  Lecture
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="dropdown-item" href="#">
-                      Action
-                    </a>
+                    {/* <a class="dropdown-item" href="/lectureProfile">
+                      Profile
+                    </a> */}
+                    <Link to="/lectureProfile" className="dropdown-item" aria-current="page">Profile</Link>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">
-                      Another action
-                    </a>
+                    {/* <a class="dropdown-item" href="/add">
+                      Forms
+                    </a> */}
+                    <Link to="/addLecture" className="dropdown-item" aria-current="page">Add Lecture</Link>
                   </li>
                   <li>
                     <hr class="dropdown-divider" />
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">
-                      Something else here
-                    </a>
+                    {/* <a class="dropdown-item" href="/list">
+                      List
+                    </a> */}
+                    <Link to="/lectureList" className="dropdown-item" aria-current="page">List</Link>
                   </li>
                 </ul>
               </li>
@@ -71,17 +110,36 @@ function Navrbar() {
                 </a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+            <form class="d-flex" onSubmit={handleSearch}>
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <button class="btn btn-outline-success" type="submit">
+          Search
+        </button>
+      </form>
+
+      {searchResults.length > 0 && (
+        <div>
+          <p>Sorted by: {sortField}</p>
+          <button onClick={() => handleSort("price")}>Sort by Price</button>
+          <button onClick={() => handleSort("duration")}>Sort by Duration</button>
+
+          {/* Display search results here */}
+          <ul>
+            {searchResults.map((course) => (
+              <li key={course.courseID}>
+                <Link to={`/course/${course.courseID}`}>{course.courseName}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
           </div>
         </div>
       </nav>
