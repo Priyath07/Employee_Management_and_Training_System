@@ -104,6 +104,50 @@ app.post('/upload', upload.single('VehicleImage'), (req, res) => {
   }
 });
 
+//Kdeelz
+
+
+//person router
+const personRoutes = require('./routes/Customer Management/person.js');
+app.use('/person', personRoutes);
+
+
+// Use the authRoutes for authentication
+
+// Login route
+app.post('/auth/login', (req, res) => {
+  const { itNumber, nationalId } = req.body;
+
+  // Check if provided itNumber and nationalId match specific values
+  if (itNumber === 'IT21801822' && nationalId === '200131003173') {
+    // Credentials are valid, generate a token
+    const token = jwt.sign({ itNumber, nationalId }, 'your-secret-key');
+    res.json({ token });
+  } else {
+    res.status(401).json({ error: 'Invalid credentials' });
+  }
+});
+
+// Protected route
+app.get('/profile', authenticate, (req, res) => {
+  res.json({ message: 'You have access to this route!' });
+});
+
+// Authentication middleware
+function authenticate(req, res, next) {
+  const token = req.headers.authorization;
+
+  if (!token) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+
+  try {
+    jwt.verify(token, 'your-secret-key');
+    next();
+  } catch (err) {
+    res.status(401).json({ error: 'Invalid token' });
+  }
+}
 const PORT = process.env.PORT || 8070;
 app.use('/uploads', express.static('uploads'));
 app.listen(PORT, () => {
