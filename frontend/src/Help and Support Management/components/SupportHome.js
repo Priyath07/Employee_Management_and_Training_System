@@ -127,6 +127,9 @@ const SupportHome = () => {
           </div>
           <Link to="/AllTickets"><button>Check Tickets</button></Link>
       <Link to="/AllFeedbacks"><button>Check Feedbacks</button></Link>
+
+      {/* //sandaru */}
+      <Link to="/Attendance"><button>Attendance</button></Link>
       {/* <Link to="/add"><button>Add New Feedback</button></Link>
       <Link to="/AllTickets"><button>Check Tickets</button></Link>
       <Link to="/Ticket"><button>Add New Ticket</button></Link> */}

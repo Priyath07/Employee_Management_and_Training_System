@@ -51,6 +51,40 @@ app.use("/feedback",feedbackRouter)
 const ticketRouter = require("./routes/Help and Support Management/Tickets")
 app.use("/ticket",ticketRouter)
 
+// sandaru
+
+//create access in the backend to employee.js file on routes
+const employeeRouter = require("./routes/Attendance and Leave Management/employees")
+//execute employee.js
+app.use("/employee",employeeRouter);
+
+const requestLeavesRouter = require("./routes/Attendance and Leave Management/RequestLeaves");
+
+// Use the RequestLeaves router as a middleware
+app.use("/leave", requestLeavesRouter); // Example URL prefix
+
+const attendanceRouter = require("./routes/Attendance and Leave Management/AttendanceFormRout");
+app.use("/attendance",attendanceRouter);
+
+//Medical Leave
+const approvedmedicalLvRouter = require("./routes/Attendance and Leave Management/ApprovedMedicalLvRout");
+app.use("/approvedMedicLv", approvedmedicalLvRouter); 
+
+//duty leave
+const approveddutyLvRouter = require("./routes/Attendance and Leave Management/ApprovedDutyLvRout");
+app.use("/approvedDutyLv",approveddutyLvRouter);
+
+//halfday leave
+const approvedHalfDayLvRouter = require("./routes/Attendance and Leave Management/ApprovedHalfdayLvRout");
+app.use("/approvedhalfDayLv",approvedHalfDayLvRouter);
+
+//offtime
+const OffTimeFormRouter = require("./routes/Attendance and Leave Management/OffTimeFormRout");
+app.use("/offTime",OffTimeFormRouter);
+
+//leave history
+const leaveHistoryRouter = require("./routes/Attendance and Leave Management/LeaveHistoryRout");
+app.use("/leaveHistory",leaveHistoryRouter);
 
 // Multer file upload
 const upload = multer({ storage: storage });
