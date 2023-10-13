@@ -1,8 +1,8 @@
 const router = require("express").Router()
-const { Shuttle, upload } = require("../models/ShuttleModel");
+const { Shuttle, upload } = require("../../models/TransportationManagement/ShuttleModel");
 
 //  add data
- router.route("/add").post(upload.single("VehicleImage"), (req, res) => {
+ router.route("/AddShuttle").post(upload.single("VehicleImage"), (req, res) => {
        
     const VehicleNumber = req.body.VehicleNumber                        
     const Route = req.body.Route

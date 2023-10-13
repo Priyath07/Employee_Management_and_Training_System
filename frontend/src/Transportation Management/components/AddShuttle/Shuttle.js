@@ -23,7 +23,7 @@ const AddShuttle = () => {
         formData.append("DriverName", DriverName);
 
         axios
-          .post("http://localhost:8070/shuttle/add", formData, {
+          .post("http://localhost:8070/shuttle/AddShuttle", formData, {
             headers: {
               "Content-Type": "multipart/form-data", // Set the content type to form data for file uploads
             },
