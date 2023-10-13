@@ -120,7 +120,7 @@ const SupportHome = () => {
               the skill of providing feedback is an important tool for promoting
               continuous learning and development
               </p>
-              <Link to="/add" className="btn btn-primary">
+              <Link to="/Feedbackadd" className="btn btn-primary">
               Give your Feedback <i className="bi bi-arrow-right"></i>
               </Link>
             </div>

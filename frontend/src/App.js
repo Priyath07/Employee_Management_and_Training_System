@@ -40,7 +40,7 @@ function App() {
         
 
  {/* Help */}
-          <Route path="/add" exact element={<AddFeedback/>}/>
+          <Route path="/Feedbackadd" exact element={<AddFeedback/>}/>
           <Route path='/AllFeedbacks' exact element = {<AllFeedbacks/>}/>
           <Route path='/' exact element = {<SupportHome/>}/>
           <Route path='/Ticket' exact element = {<Ticket/>}/>
