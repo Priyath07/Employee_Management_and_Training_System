@@ -23,7 +23,7 @@ const AddShuttle = () => {
         formData.append("DriverName", DriverName);
 
         axios
-          .post("http://localhost:8070/shuttle/AddShuttle", formData, {
+          .post("http://localhost:8070/shuttle/add", formData, {
             headers: {
               "Content-Type": "multipart/form-data", // Set the content type to form data for file uploads
             },
@@ -34,7 +34,7 @@ const AddShuttle = () => {
             console.log(formData);
           })
           .catch((error) => {
-            alert("fill all fields");
+            alert(error);
           });
       }
 
