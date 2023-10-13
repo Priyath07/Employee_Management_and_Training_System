@@ -34,7 +34,7 @@ const AddShuttle = () => {
             console.log(formData);
           })
           .catch((error) => {
-            alert("error");
+            alert("fill all fields");
           });
       }
 
