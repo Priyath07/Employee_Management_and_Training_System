@@ -94,7 +94,7 @@ function App() {
 
     {/* Customer */}
     <Route path="/person/personlist" element={<PersonList />} />
-        <Route path="/add" element={<AddEmployee />} />
+        <Route path="/person/add" element={<AddEmployee />} />
         <Route path="/person/:id" element={<PersonDetails />}/>
         <Route path="/person/nationalId/:nationalId" element={ <AdminProfile />}/>
         <Route path="/person/lecturer/nationalId/:nationalId" element={ <LecturerProfile />}/>

@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 // Create a new person
-router.post('/add', async (req, res) => {
+router.post('/person/add', async (req, res) => {
   try {
     const person = new Person(req.body);
     await person.save();
