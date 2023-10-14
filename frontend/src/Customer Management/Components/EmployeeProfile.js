@@ -118,9 +118,9 @@ function LecturerProfile() {
               <div className="dropdown-content">
                   
                    <Link to={`/person/update/${person._id}`}>Update</Link>
-                   <Link to={``}>View Shuttle</Link>
+                   <Link to={`/Home`}>View Shuttle</Link>
                    <Link to={``}>View Progress</Link>
-                   <Link to={``}>Help and Support</Link>
+                   <Link to={`/SupportHome`}>Help and Support</Link>
                    <Link to={``}>View Salary</Link>
                    <Link to={``}>Log Out</Link>
               </div>

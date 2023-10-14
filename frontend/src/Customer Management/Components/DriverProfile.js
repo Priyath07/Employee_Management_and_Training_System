@@ -118,6 +118,7 @@ function LecturerProfile() {
               <div className="dropdown-content">
                   
                    <Link to={`/person/update/${person._id}`}>Update</Link>
+                   <Link to={`/DriverPassenger`}>Passenger List</Link>
                    <Link to={`/login`}>Log Out</Link>
               </div>
               </div>
