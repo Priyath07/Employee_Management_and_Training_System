@@ -99,7 +99,7 @@ function AddEmployee() {
       };
 
       axios
-        .post('http://localhost:8070/person/add', newEmployee)
+        .post('http://localhost:8070/person/person/add', newEmployee)
         .then(() => {
           alert('Employee Added');
           navigate(`/person/nationalId/${nationalId}`);

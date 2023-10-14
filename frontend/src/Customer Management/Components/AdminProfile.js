@@ -118,7 +118,7 @@ function AdminProfile() {
               <div className="dropdown-content">
                    <Link to={`/person/personlist`}>View Employee List</Link>
                    <Link to={`/person/update/${person._id}`}>Update</Link>
-                   <Link to={`/add/`}>Add Employee</Link>
+                   <Link to={`/person/add/`}>Add Employee</Link>
                    <Link to={``}>Help And Support</Link>
                    <Link to={``}>View Tickets</Link>
                    <Link to={``}>View Attendance</Link>

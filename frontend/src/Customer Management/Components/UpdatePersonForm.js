@@ -95,7 +95,7 @@ function UpdatePersonForm() {
         </div>
         <div className="form-group">
           <label htmlFor="itNumber">IT Number:</label>
-          <input type="text" name="itNumber" value={person.itNumber}readOnly />
+          <input type="text" name="itNumber" value={person.itNumber} onChange={handleChange} />
         </div>
         <div className="form-group">
           <label htmlFor="education">Education:</label>
