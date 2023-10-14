@@ -1,5 +1,5 @@
 
-
+import { useParams, useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../css/EmployeeForm.css';
@@ -23,6 +23,7 @@ function AddEmployee() {
   const [skills, setSkills] = useState('');
   const [itNumber, setItNumber] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
   
   
   
@@ -101,7 +102,7 @@ function AddEmployee() {
         .post('http://localhost:8070/person/add', newEmployee)
         .then(() => {
           alert('Employee Added');
-          
+          navigate(`/person/nationalId/${nationalId}`);
         })
         .catch((err) => {
           alert(err);

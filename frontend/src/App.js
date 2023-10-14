@@ -44,7 +44,9 @@ import PersonDetails from './Customer Management/Components/PersonDetails';
 import UpdatePersonForm from './Customer Management/Components/UpdatePersonForm';
 import Login from './Customer Management/Components/Login';
 import AdminProfile from './Customer Management/Components/AdminProfile';
-
+import LecturerProfile from './Customer Management/Components/LecturerProfile';
+import DriverProfile from './Customer Management/Components/DriverProfile';
+import EmployeeProfile from './Customer Management/Components/EmployeeProfile';
 
 
        
@@ -91,12 +93,15 @@ function App() {
         <Route path= '/leave/LeaveHistory' exact element={<LeaveHistory/>}/>
 
     {/* Customer */}
-        <Route path="/person/personlist" element={<PersonList />} />
-        <Route path="/AddEmployee" element={<AddEmployee />} />
+    <Route path="/person/personlist" element={<PersonList />} />
+        <Route path="/add" element={<AddEmployee />} />
         <Route path="/person/:id" element={<PersonDetails />}/>
         <Route path="/person/nationalId/:nationalId" element={ <AdminProfile />}/>
-        <Route exact path="/person/login" element={<Login/>} />
-        <Route path="/person/update/:id" element={<UpdatePersonForm />}/>
+        <Route path="/person/lecturer/nationalId/:nationalId" element={ <LecturerProfile />}/>
+        <Route path="/person/driver/nationalId/:nationalId" element={ <DriverProfile />}/>
+        <Route path="/person/employee/nationalId/:nationalId" element={ <EmployeeProfile />}/>
+        <Route exact path="/login" element={<Login/>} />
+        <Route path="/person/update/:id" element={<UpdatePersonForm />} />
     
       
           

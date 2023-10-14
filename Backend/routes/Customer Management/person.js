@@ -66,28 +66,6 @@ router.delete('/delete/:id', async (req, res) => {
   }
 });
 
-// // Upload a profile picture for a person by ID
-// router.post('/upload/:id', upload.single('profilePicture'), async (req, res) => {
-//   try {
-//     const { id } = req.params; // Get the person's ID from the URL
-//     const person = await Person.findById(id);
-
-//     if (!person) {
-//       return res.status(404).json({ message: 'Person not found' });
-//     }
-
-//     // Update the profilePicture field with the file path
-//     person.profilePicture = req.file.path;
-
-//     // Save the updated person document
-//     await person.save();
-
-//     res.json({ message: 'Profile picture uploaded successfully' });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ message: 'Internal server error' });
-//   }
-// });
 
 
 //search
@@ -119,26 +97,6 @@ router.get('/:id', async (req, res) => {
 });
 
 
-// router.post('/login', async (req, res) => {
-//   try {
-//     const { itNumber, nationalId } = req.body;
-//     const person = await Person.findOne({ itNumber, nationalId });
-
-//     if (!person) {
-//       return res.status(401).json({ error: 'Invalid credentials' });
-//     }
-
-//     // Use a unique user identifier (e.g., user ID) to sign the token
-//     const token = jwt.sign({ userId: person._id }, '200131003173');
-//     res.json({ token });
-//   } catch (err) {
-//     res.status(500).json({ error: err.message });
-//   }
-// });
-
-// routes/person.js
-
-
 
 // Read one person by nationalID
 router.get('/nationalId/:nationalId', async (req, res) => {
@@ -157,13 +115,93 @@ router.get('/nationalId/:nationalId', async (req, res) => {
 });
 
 
+router.get('/lecturer/nationalId/:nationalId', async (req, res) => {
+  try {
+    const nationalId = req.params.nationalId;
+    const person = await Person.findOne({ nationalId });
+
+    if (!person) {
+      res.status(404).json({ error: 'Person not found' });
+    } else {
+      res.json(person);
+    }
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+router.get('/driver/nationalId/:nationalId', async (req, res) => {
+  try {
+    const nationalId = req.params.nationalId;
+    const person = await Person.findOne({ nationalId });
+
+    if (!person) {
+      res.status(404).json({ error: 'Person not found' });
+    } else {
+      res.json(person);
+    }
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 
 
+router.get('/employee/nationalId/:nationalId', async (req, res) => {
+  try {
+    const nationalId = req.params.nationalId;
+    const person = await Person.findOne({ nationalId });
 
+    if (!person) {
+      res.status(404).json({ error: 'Person not found' });
+    } else {
+      res.json(person);
+    }
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 
+// Create a login route
+router.post('/login', async (req, res) => {
+  try {
+    const { itNumber, nationalId } = req.body;
 
+    // Check for specific admin users
+    if (itNumber === 'ITAdmin' && nationalId === '200131003173') {
+      // Simulate admin login and navigation page
+      return res.status(200).json({ message: 'Welcome Admin', isITAdmin: true });
+    }
 
+    if (itNumber === 'ITLecturer' && nationalId === '200231003173') {
+      // Simulate lecturer login and navigation page
+      return res.status(200).json({ message: 'Welcome Lecturer', isITLecturer: true });
+    }
 
+    if (itNumber === 'ITDriver' && nationalId === '200331003173') {
+      // Simulate driver login and navigation page
+      return res.status(200).json({ message: 'Welcome Driver', isITDriver: true });
+    }
 
+    if (itNumber === 'ITEmployee' && nationalId === '200531003173' ) {
+      return res.status(200).json({message: 'Welcome Employee', isITEmployee: true});
+    }
+
+    // If not an admin user, check for regular users in the database
+    const user = await Person.findOne({ itNumber, nationalId });
+
+    if (!user) {
+      // If no matching user is found, send an error response
+      return res.status(401).json({ message: 'Invalid username or password' });
+    }
+
+    // You can add additional validation checks here, such as checking user's userType, etc.
+
+    // If the user is found, you can send a success response
+    res.status(200).json({ message: 'Login successful', user });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error', error: error.message });
+  }
+});
 
 module.exports = router;

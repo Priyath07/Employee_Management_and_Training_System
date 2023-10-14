@@ -75,7 +75,7 @@ function UpdatePersonForm() {
         </div>
         <div className="form-group">
           <label htmlFor="email">Email:</label>
-          <input type="text" name="email" value={person.email} readOnly />
+          <input type="text" name="email" value={person.email} onChange={handleChange} />
         </div>
         <div className="form-group">
           <label htmlFor="nationalId">National ID:</label>
@@ -95,7 +95,7 @@ function UpdatePersonForm() {
         </div>
         <div className="form-group">
           <label htmlFor="itNumber">IT Number:</label>
-          <input type="text" name="itNumber" value={person.itNumber} readOnly />
+          <input type="text" name="itNumber" value={person.itNumber}readOnly />
         </div>
         <div className="form-group">
           <label htmlFor="education">Education:</label>
@@ -112,7 +112,7 @@ function UpdatePersonForm() {
         <br/>
        
         <button className='custom-button'>
-        <Link to={`/person/nationalId/${person.nationalId}`}  >Go to Profile</Link>
+        <Link to={`/`}  >Go to Profile</Link>
             </button>
       </form>
     </div>

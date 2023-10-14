@@ -15,7 +15,7 @@ function LecturerProfile() {
   useEffect(() => {
     const getPerson = async () => {
       try {
-        const response = await axios.get(`http://localhost:8070/person/employee/nationalId/${nationalId}`);
+        const response = await axios.get(`http://localhost:8070/person/lecturer/nationalId/${nationalId}`);
         setPerson(response.data);
         setLoading(false);
       } catch (error) {
@@ -118,11 +118,8 @@ function LecturerProfile() {
               <div className="dropdown-content">
                   
                    <Link to={`/person/update/${person._id}`}>Update</Link>
-                   <Link to={``}>View Shuttle</Link>
-                   <Link to={``}>View Progress</Link>
-                   <Link to={``}>Help and Support</Link>
-                   <Link to={``}>View Salary</Link>
-                   <Link to={``}>Log Out</Link>
+                   <Link to={`/login`}>Log Out</Link>
+                   
               </div>
               </div>
             </div>
