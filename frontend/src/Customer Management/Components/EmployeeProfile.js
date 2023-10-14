@@ -122,7 +122,7 @@ function LecturerProfile() {
                    <Link to={``}>View Progress</Link>
                    <Link to={``}>Help and Support</Link>
                    <Link to={``}>View Salary</Link>
-                   <Link to={``}>Log Out</Link>
+                   <Link to={`/login`}>Log Out</Link>
               </div>
               </div>
             </div>
