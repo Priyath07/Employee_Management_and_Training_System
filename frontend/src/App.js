@@ -37,6 +37,19 @@ import HRfront from './Attendance and Leave Management/components/HRfront';
 import LeaveHistoryFront from './Attendance and Leave Management/components/leave/LeaveHistoryFront';
 import LeaveHistory from './Attendance and Leave Management/components/leave/LeaveHistory';
 
+//Kdeelz
+import PersonList from './Customer Management/Components/PersonList';
+import AddEmployee from './Customer Management/Components/AddEmployee';
+import PersonDetails from './Customer Management/Components/PersonDetails';
+import UpdatePersonForm from './Customer Management/Components/UpdatePersonForm';
+import Login from './Customer Management/Components/Login';
+import AdminProfile from './Customer Management/Components/AdminProfile';
+import LecturerProfile from './Customer Management/Components/LecturerProfile';
+import DriverProfile from './Customer Management/Components/DriverProfile';
+import EmployeeProfile from './Customer Management/Components/EmployeeProfile';
+
+
+       
 
 function App() {
   return (
@@ -78,6 +91,19 @@ function App() {
         <Route path= '/HRfront' exact element={<HRfront/>}/>
         <Route path= '/LeaveHistoryFront' exact element={<LeaveHistoryFront/>}/>
         <Route path= '/leave/LeaveHistory' exact element={<LeaveHistory/>}/>
+
+    {/* Customer */}
+    <Route path="/person/personlist" element={<PersonList />} />
+        <Route path="/add" element={<AddEmployee />} />
+        <Route path="/person/:id" element={<PersonDetails />}/>
+        <Route path="/person/nationalId/:nationalId" element={ <AdminProfile />}/>
+        <Route path="/person/lecturer/nationalId/:nationalId" element={ <LecturerProfile />}/>
+        <Route path="/person/driver/nationalId/:nationalId" element={ <DriverProfile />}/>
+        <Route path="/person/employee/nationalId/:nationalId" element={ <EmployeeProfile />}/>
+        <Route exact path="/login" element={<Login/>} />
+        <Route path="/person/update/:id" element={<UpdatePersonForm />} />
+    
+      
           
         </Routes>
         <Chat/>
