@@ -45,7 +45,7 @@ function App() {
       
         <Routes>
  {/* Transport */}
-          <Route path="/add" exact element={<AddShuttle/>}/>
+          <Route path="/AddShuttle" exact element={<AddShuttle/>}/>
           <Route path='/AllShuttles' exact element = {<AllShuttles/>}/>
           <Route path="/ApplyShuttle" exact element={<ApplyShuttle/>}/>
           <Route path="/Passenger" exact element={<Passenger/>}/>
