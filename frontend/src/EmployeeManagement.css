@@ -1,0 +1,73 @@
+/* EmployeeManagement.css */
+
+/* Navigation bar styles */
+.landing-nav {
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 0;
+}
+
+/* Move the buttons to the right */
+.landing-nav .justify-content-end {
+  justify-content: flex-end;
+}
+
+/* Style the buttons */
+.landing-nav .btn {
+  margin-right: 10px;
+}
+
+/* Jumbotron-like banner styles */
+.landing-banner {
+  background-color: #0e284c; /* Background color for the banner */
+  color: #fff; /* Text color for the banner */
+  padding: 40px; /* Padding for the banner */
+  text-align: center;
+}
+
+.landing-banner h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.landing-banner p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* Key Features section styles */
+.landing-features {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.landing-features h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  /* Center align the buttons on smaller screens */
+  .landing-nav .justify-content-end {
+    justify-content: center;
+  }
+
+  .landing-banner h1 {
+    font-size: 24px;
+  }
+
+  .landing-banner p {
+    font-size: 14px;
+  }
+
+  .landing-features h2 {
+    font-size: 20px;
+  }
+
+  .landing-features li {
+    font-size: 14px;
+  }
+}
+
+/* Add more custom styles as needed */
