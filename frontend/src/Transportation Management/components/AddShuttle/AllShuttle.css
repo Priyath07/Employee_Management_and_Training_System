@@ -1,5 +1,5 @@
 body {
-    background-image: linear-gradient(to right, #3d6cb9, #00fff0);
+
   
     margin: 0; /* Remove default margin to fill the whole page */
     padding: 0; /* Remove default padding to fill the whole page */
@@ -37,7 +37,4 @@ body {
       background-color: #f2f2f2;
     }
     
-    .shuttle-table tbody tr:hover {
-      background-color: #ddd;
-  }
   

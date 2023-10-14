@@ -1,6 +1,9 @@
-/* EmployeeManagement.css */
-
 /* Navigation bar styles */
+
+*{
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+}
 .landing-nav {
   background-color: #fff;
   border-bottom: 1px solid #e0e0e0;
@@ -37,13 +40,18 @@
 
 /* Key Features section styles */
 .landing-features {
+  margin-top: 40px;
+  margin-bottom: 40px;
   padding: 40px 0;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.landing-features h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
+.landing-features card {
+  width: 250px;
+  margin: 10px;
 }
 
 /* Responsive styles */
@@ -63,10 +71,18 @@
 
   .landing-features h2 {
     font-size: 20px;
+  align-self: center;
   }
 
   .landing-features li {
     font-size: 14px;
+  }
+  .key-features{
+
+    margin-top: 0;
+  margin-bottom: 0;
+  align-self: center;
+    
   }
 }
 

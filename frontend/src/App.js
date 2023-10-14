@@ -1,7 +1,7 @@
-import './App.css';
+
 import {BrowserRouter , Routes , Route, Link} from "react-router-dom"
 
-import EmployeeManagementLanding from './EmployeeManagement';
+import EmployeeManagement from './EmployeeManagement';
 // Transport
 import AddShuttle from './Transportation Management/components/AddShuttle/Shuttle';
 import Header from './Transportation Management/components/AddShuttle/Header';
@@ -58,7 +58,7 @@ function App() {
    
       
         <Routes>
-        <Route path="/" exact element={<EmployeeManagementLanding/>}/>
+        <Route path="/" element={<EmployeeManagement />} />
  {/* Transport */}
           <Route path="/AddShuttle" exact element={<AddShuttle/>}/>
           <Route path='/AllShuttles' exact element = {<AllShuttles/>}/>
