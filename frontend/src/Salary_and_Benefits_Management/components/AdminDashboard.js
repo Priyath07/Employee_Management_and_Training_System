@@ -255,8 +255,8 @@
 // export default AdminDashboard;
 
 import React, { useEffect, useState } from 'react';
-import { ReactComponent as SunIcon } from 'C:/SLIIT/ITP/Employee_Management_and_Training_System/frontend/src/sun.svg'; // Replace './sun.svg' with the path to your sun icon
-import { ReactComponent as MoonIcon } from 'C:/SLIIT/ITP/Employee_Management_and_Training_System/frontend/src/moon.svg'; // Replace './moon.svg' with the path to your moon icon
+import { ReactComponent as SunIcon } from '../../../src/sun.svg'; // Replace './sun.svg' with the path to your sun icon
+import { ReactComponent as MoonIcon } from '../../../src/moon.svg'; // Replace './moon.svg' with the path to your moon icon
 import Calculator from './Calculator';
 
 const Dashboard = () => {
