@@ -1,0 +1,71 @@
+/* Home.css */
+body {
+  background-image: linear-gradient(#C1FCD3);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.button1 {
+  border-radius: 45px;
+  margin: 10px;
+}
+
+.Home-container {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.Home-content-container h1 {
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-weight: bolder;
+  font-size: 40px; /* Increase the font size for h1 */
+  text-align: left;
+  padding-left: 10px; /* Add padding to the left of h1 */
+}
+
+.Home-content-container p {
+  font-weight: bold;
+  font-size: 18px; /* Increase the font size for p */
+  text-align: left;
+  padding-left: 10px; /* Add padding to the left of p */
+}
+
+.image-container {
+  flex: 1;
+  padding: 20px;
+  text-align: right;
+}
+
+.shuttle-image {
+  max-width: 80%;
+  height: auto;
+}
+
+/* Responsive styles for screens with a maximum width of 768px */
+@media (max-width: 768px) {
+  .Home-content-container h1 {
+    font-size: 25px; /* Adjust the font size for h1 on smaller screens */
+  }
+  
+  .Home-content-container p {
+    font-size: 15px; /* Adjust the font size for p on smaller screens */
+  }
+
+  .shuttle-image {
+    max-width: 80%; /* Make the image full-width on smaller screens */
+  }
+
+  .Home-container {
+    flex-direction: column; /* Stack child elements vertically on smaller screens */
+    align-items: flex-start; /* Align content to the left on smaller screens */
+  }
+
+  .button1 {
+    margin: 10px 0; /* Add space between buttons */
+  }
+}

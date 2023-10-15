@@ -1,0 +1,90 @@
+
+.user-details {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.user-details-column {
+
+  margin: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  width: 50%;
+  
+  
+}
+
+
+.custom-button {
+  background-color: rgba(0, 0, 0, 0.186); /* Change to your desired background color */
+  color: rgb(0, 0, 0); /* Change to your desired text color */
+  padding: 10px 20px; /* Adjust padding as needed */
+  border: none; /* Remove button border */
+  border-radius: 5px; /* Add rounded corners */
+  text-decoration: none; /* Remove underlines */
+  cursor: pointer; /* Show a pointer cursor on hover */
+}
+
+.button-link {
+  
+  padding: 10px 20px; /* Adjust padding as needed */
+  background-color: rgb(156, 156, 227); /* Change to your desired background color */
+  color: white; /* Change to your desired text color */
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  
+  cursor: pointer;
+  margin-right: 10px; /* Add spacing between buttons */
+}
+
+.button-link:hover {
+  background-color: darkblue; /* Change to the desired hover color */
+}
+
+
+.user-detail {
+  margin-bottom: 10px;
+}
+
+.person{
+  font-weight: 50%;
+  color: rgba(9, 39, 123, 0.645);
+}
+
+
+
+.person-contact{
+  font-weight: 50%;
+  color: rgba(9, 39, 123, 0.645);
+  position: absolute;
+  top: 400px;
+  right:599px;
+  
+}
+
+.qrCode{
+  position: absolute;
+  top: 50px;
+  right: 400px;
+}
+
+.person-attendance {
+  position: absolute;
+  top: 300px;
+  right: 100px;
+}
+
+label {
+  font-weight: bold;
+}
+
+p {
+  margin: 0;
+}
+
+
+

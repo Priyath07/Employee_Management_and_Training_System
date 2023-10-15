@@ -1,0 +1,40 @@
+body {
+
+  
+    margin: 0; /* Remove default margin to fill the whole page */
+    padding: 0; /* Remove default padding to fill the whole page */
+    display: flex;
+    flex-direction: column; /* Stack child elements vertically */
+    height: 100vh; /* Make the body take up the full viewport height */
+  }
+  .shuttle-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f7f7f7;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .shuttle-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    
+    .shuttle-table th,
+    .shuttle-table td {
+      padding: 10px;
+      text-align: left;
+    }
+    
+    .shuttle-table th {
+      background-color: #333;
+      color: white;
+    }
+    
+    .shuttle-table tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    
+  

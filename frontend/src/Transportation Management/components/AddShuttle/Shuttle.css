@@ -1,0 +1,31 @@
+Shuttle.css */
+body {
+  background-image: linear-gradient(to right, #3d6cb9, #00fff0);
+
+  margin: 0; /* Remove default margin to fill the whole page */
+  padding: 0; /* Remove default padding to fill the whole page */
+  display: flex;
+  flex-direction: column; /* Stack child elements vertically */
+  height: 100vh; /* Make the body take up the full viewport height */
+}
+.container {
+  max-width: 500px; /* Adjust the max-width as needed for your design */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-label {
+  font-size: 18px; /* Set a base font size */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+
+  .form-label {
+    font-size: 16px; /* Reduce font size for smaller screens */
+  }
+}
+
