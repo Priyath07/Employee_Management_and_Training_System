@@ -15,7 +15,7 @@ const Header = () => {
         <li className="nav-item">
         <Link to="/Home"><button>Home</button></Link>
         <Link to="/AllShuttles"><button>Check Shuttles</button></Link>
-      <Link to="/add"><button>Add New Shuttle</button></Link>
+      <Link to="/AddShuttle"><button>Add New Shuttle</button></Link>
       <Link to="/ApplyShuttle"><button>Apply  Shuttle</button></Link>
       <Link to="/Passenger"><button>Passenger List</button></Link>
       <Link to="/DriverPassenger"><button>Driver Passenger List</button></Link>

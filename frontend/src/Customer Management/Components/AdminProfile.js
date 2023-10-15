@@ -119,9 +119,13 @@ function AdminProfile() {
                    <Link to={`/person/personlist`}>View Employee List</Link>
                    <Link to={`/person/update/${person._id}`}>Update</Link>
                    <Link to={`/person/add/`}>Add Employee</Link>
-                   <Link to={``}>Help And Support</Link>
-                   <Link to={``}>View Tickets</Link>
-                   <Link to={``}>View Attendance</Link>
+                   <Link to={`/AllFeedbacks`}>View Feedback</Link>
+                   <Link to={`/AllTickets`}>View Tickets</Link>
+                   <Link to={`/AddShuttle`}>Add Shuttle</Link>
+                   <Link to={`/Passenger`}>View Passenger</Link>
+                   <Link to={`/DriverPassenger`}>Driver Passenger List</Link>
+                   <Link to={`/report`}>View Passenger Report</Link>
+                   <Link to={`/`}>View Attendance</Link>
                    <Link to={``}>View Leave</Link>
                    <Link to={`/login`}>Log Out</Link>
               </div>

@@ -3,10 +3,9 @@ const { Shuttle, upload } = require("../../models/TransportationManagement/Shutt
 
 //  add data
 
-    
  router.route("/add").post(upload.single("VehicleImage"), (req, res) => {
-       
-    const VehicleNumber = req.body.VehicleNumber                        
+
+     const VehicleNumber = req.body.VehicleNumber                        
     const Route = req.body.Route
     const selectedRoute = req.body.selectedRoute
     const VehicleType = req.body.VehicleType
@@ -14,7 +13,6 @@ const { Shuttle, upload } = require("../../models/TransportationManagement/Shutt
     const DriverName = req.body.DriverName
      // Check if a file was uploaded
   if (!req.file) {
-
     return res.status(400).json({ error: "Image file is required." });
   }
 

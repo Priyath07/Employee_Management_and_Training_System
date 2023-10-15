@@ -1,6 +1,7 @@
-import './App.css';
+
 import {BrowserRouter , Routes , Route, Link} from "react-router-dom"
 
+import EmployeeManagement from './EmployeeManagement';
 // Transport
 import AddShuttle from './Transportation Management/components/AddShuttle/Shuttle';
 import Header from './Transportation Management/components/AddShuttle/Header';
@@ -54,9 +55,10 @@ import EmployeeProfile from './Customer Management/Components/EmployeeProfile';
 function App() {
   return (
     <BrowserRouter>
-    <Header/>
+   
       
         <Routes>
+        <Route path="/" element={<EmployeeManagement />} />
  {/* Transport */}
           <Route path="/AddShuttle" exact element={<AddShuttle/>}/>
           <Route path='/AllShuttles' exact element = {<AllShuttles/>}/>
@@ -71,7 +73,7 @@ function App() {
  {/* Help */}
           <Route path="/Feedbackadd" exact element={<AddFeedback/>}/>
           <Route path='/AllFeedbacks' exact element = {<AllFeedbacks/>}/>
-          <Route path='/' exact element = {<SupportHome/>}/>
+          <Route path='/SupportHome' exact element = {<SupportHome/>}/>
           <Route path='/Ticket' exact element = {<Ticket/>}/>
           <Route path='/AllTickets' exact element = {<AllTickets/>}/>
           <Route path='/FAQ' exact element = {<FAQ/>}/>

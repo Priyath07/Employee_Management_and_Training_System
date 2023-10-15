@@ -9,7 +9,7 @@ const AddShuttle = () => {
     const [Route , setRoute] = useState("")
     const [DriverName , setDriverName] = useState("")
     const [submitted, setSubmitted] = useState(false);
-    const [VehicleType, setType] = useState(false);
+    const [VehicleType, setType] = useState("");
     const [VehicleImage, setImage] = useState(null);
 
     function sendData(e){ 
