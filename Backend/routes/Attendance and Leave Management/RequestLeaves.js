@@ -2,6 +2,33 @@
 const express = require('express');
 const router = express.Router();
 const Leave = require('../../models/Attendance and Leave Management/RequestLeave');
+const path = require('path');
+const fs = require('fs');
+const multer =  require('multer')
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
+// Create file upload
+router.post('/add', upload.single('document'), async (req, res) => {
+  try {
+    console.log(req.body);
+    const leave = new Leave({
+      employeeName: req.body.employeeName,
+      employeeId: req.body.employeeId,
+      description: req.body.description,
+      LeaveRequestType: req.body.LeaveRequestType,
+      // Set document data and content type from the uploaded file
+     
+    });
+
+    await leave.save();
+    res.status(201).json(leave);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
 
 // Create a new person
 router.post('/add', async (req, res) => {
