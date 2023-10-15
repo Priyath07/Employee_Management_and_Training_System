@@ -29,7 +29,7 @@ function UpdatePersonForm() {
         setIsUpdated(true);
         alert('Employee Updated!'); // Set the flag to show the alert
         // Redirect to the person details page
-        navigate(`/person/${id}`);
+        
       })
       .catch((error) => {
         console.error('Error updating user details:', error);
@@ -95,7 +95,7 @@ function UpdatePersonForm() {
         </div>
         <div className="form-group">
           <label htmlFor="itNumber">IT Number:</label>
-          <input type="text" name="itNumber" value={person.itNumber} onChange={handleChange} />
+          <input type="text" name="itNumber" value={person.itNumber} readOnly />
         </div>
         <div className="form-group">
           <label htmlFor="education">Education:</label>

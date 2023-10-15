@@ -79,7 +79,7 @@ function App() {
           <Route path='/FAQ' exact element = {<FAQ/>}/>
           <Route path="/TicketDetail/:id" exact element={<TicketDetail/>} />
  {/* Attendance */}
-        <Route path='/Attendance' exact element={<Attendance/>}/>
+        <Route path='/attendance' exact element={<Attendance/>}/>
         <Route path='/leave/Leave' exact element={<Leave/>}/>
         <Route path='/HRleave' exact element={<HRleave/>}/>
         <Route path='/AttendanceForm' exact element={<AttendanceForm/>}/>
