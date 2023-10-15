@@ -19,6 +19,7 @@ const storage = multer.diskStorage({
 
 const shuttleSchema = new Schema({
 
+   
     VehicleNumber : {
         type : String,
         required : true

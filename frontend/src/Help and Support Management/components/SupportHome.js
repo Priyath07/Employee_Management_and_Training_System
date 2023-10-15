@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './SupportHome.css'; // Import your CSS file
+import './SupportHome.css';
+import Chat from "./Chat"; // Import your CSS file
 
 const SupportHome = () => {
   return ( 
@@ -120,19 +121,14 @@ const SupportHome = () => {
               the skill of providing feedback is an important tool for promoting
               continuous learning and development
               </p>
-              <Link to="/add" className="btn btn-primary">
+              <Link to="/Feedbackadd" className="btn btn-primary">
               Give your Feedback <i className="bi bi-arrow-right"></i>
               </Link>
+              <Chat />
             </div>
           </div>
-          <Link to="/AllTickets"><button>Check Tickets</button></Link>
-      <Link to="/AllFeedbacks"><button>Check Feedbacks</button></Link>
 
-      {/* //sandaru */}
-      <Link to="/Attendance"><button>Attendance</button></Link>
-      {/* <Link to="/add"><button>Add New Feedback</button></Link>
-      <Link to="/AllTickets"><button>Check Tickets</button></Link>
-      <Link to="/Ticket"><button>Add New Ticket</button></Link> */}
+      
         </div>
 
         
