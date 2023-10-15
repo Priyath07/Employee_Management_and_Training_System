@@ -122,7 +122,7 @@ function App() {
           <Route path="/add" element={<Forms />} />
           <Route path="/ItemList" element={<ItemList />} />
           <Route path="/New/:id" element={<EditEmployee />} />
-          <Route path="/add" element={<Footer />} />
+          <Route path="/" element={<Footer />} />
           
         </Routes>
         <Chat/>
