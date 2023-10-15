@@ -99,7 +99,7 @@ function App() {
         <Route path="/person/nationalId/:nationalId" element={ <AdminProfile />}/>
         <Route path="/person/lecturer/nationalId/:nationalId" element={ <LecturerProfile />}/>
         <Route path="/person/driver/nationalId/:nationalId" element={ <DriverProfile />}/>
-        <Route path="/person/employee/nationalId/:nationalId" element={ <EmployeeProfile />}/>
+        <Route path="/person/employee/itNumber/:itNumber" element={ <EmployeeProfile />}/>
         <Route exact path="/login" element={<Login/>} />
         <Route path="/person/update/:id" element={<UpdatePersonForm />} />
     

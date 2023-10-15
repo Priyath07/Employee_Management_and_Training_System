@@ -146,10 +146,10 @@ router.get('/driver/nationalId/:nationalId', async (req, res) => {
 });
 
 
-router.get('/employee/nationalId/:nationalId', async (req, res) => {
+router.get('/employee/itNumber/:itNumber', async (req, res) => {
   try {
-    const nationalId = req.params.nationalId;
-    const person = await Person.findOne({ nationalId });
+    const itNumber = req.params.itNumber;
+    const person = await Person.findOne({ itNumber });
 
     if (!person) {
       res.status(404).json({ error: 'Person not found' });
@@ -160,6 +160,7 @@ router.get('/employee/nationalId/:nationalId', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
 
 // Create a login route
 router.post('/login', async (req, res) => {

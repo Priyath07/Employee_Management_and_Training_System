@@ -5,17 +5,17 @@ import '../css/PersonDetails.css';
 import '../css/profileTable.css';
 import '../css/DropdownMenu.css';
 import { Link } from 'react-router-dom';
-import Frame from '../img/Frame.png'
+import Frame from '../img/Frame.png';
 
 function LecturerProfile() {
-  const { nationalId } = useParams();
+  const { itNumber } = useParams(); // Update to use itNumber
   const [person, setPerson] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getPerson = async () => {
       try {
-        const response = await axios.get(`http://localhost:8070/person/employee/nationalId/${nationalId}`);
+        const response = await axios.get(`http://localhost:8070/person/employee/itNumber/${itNumber}`); // Update the URL
         setPerson(response.data);
         setLoading(false);
       } catch (error) {
@@ -25,7 +25,7 @@ function LecturerProfile() {
     };
 
     getPerson();
-  }, [nationalId]);
+  }, [itNumber]);
 
   return (
     <div className="user-details-container">

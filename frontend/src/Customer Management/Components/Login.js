@@ -23,7 +23,7 @@ function Login() {
           } else if (response.data.isITDriver) {
             navigate(`/person/driver/nationalId/${nationalId}`);
           } else if (response.data.isITEmployee) {
-            navigate(`/person/employee/nationalId/${nationalId}`);
+            navigate(`/person/employee/itNumber/${itNumber}`);
           }else {
             alert('Login Successful');
           }
@@ -60,7 +60,7 @@ function Login() {
               />
             </div>
             <div className="form-group log-form-group">
-              <label htmlFor="nationalId" className='log-label'>National ID:</label>
+              <label htmlFor="nationalId" className='log-label'>Password</label>
               <input
                 type="text"
                 name="nationalId"
