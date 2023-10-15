@@ -1,13 +1,24 @@
-const mongoose = require("mongoose");
-// Define the schema for the RequestLeave model
-const leaveSchema = new mongoose.Schema({
-  employeeName: String,
-  employeeId:String,
-  description:String,
-  LeaveRequestType:String
- 
-});
 
-// Create the RequestLeave model
+const mongoose = require("mongoose");
+
+const leaveSchema = new mongoose.Schema({
+  employeeName: {
+    type: String,
+  },
+  employeeId: {
+    type: String,
+  },
+  description: {
+    type: String,
+  },
+  LeaveRequestType: {
+    type: String,
+  },
+  // Add a field for file upload
+  document: {
+    type :String,
+    
+  },
+});
 
 module.exports = mongoose.model("requestLeave", leaveSchema);
