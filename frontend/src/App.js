@@ -1,5 +1,9 @@
 
-import {BrowserRouter , Routes , Route, Link} from "react-router-dom"
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+// ... rest of your imports and component definitions
+
 
 import EmployeeManagement from './EmployeeManagement';
 // Transport
@@ -56,7 +60,14 @@ import RecruitView from "./Recruit and Resigning Management/AllRecruits";
 import AllRecruits from "./Recruit and Resigning Management/AllRecruits";
 import Resigning from "./Recruit and Resigning Management/Resigning";
 import AllResigning from "./Recruit and Resigning Management/AllResigning";
+//Awi
 
+import Navbar from "./Salary_and_Benefits_Management/components/Navbar";
+import Forms from "./Salary_and_Benefits_Management/components/Forms";
+import ItemList from "./Salary_and_Benefits_Management/components/ItemList";
+import EditEmployee from "./Salary_and_Benefits_Management/components/EditEmployee";
+import AdminDashboard from "./Salary_and_Benefits_Management/components/AdminDashboard";
+import Footer from "./Salary_and_Benefits_Management/components/Footer";
        
 
 function App() {
@@ -112,6 +123,7 @@ function App() {
         <Route exact path="/login" element={<Login/>} />
         <Route path="/person/update/:id" element={<UpdatePersonForm />} />
     
+      {/* Awi */}
       
        {/* kavi */}
        <Route exact path="/Recruit" element={<Recruit/>} />
@@ -121,9 +133,14 @@ function App() {
       <Route path="/AllResigning" element={<AllResigning/>} />
                
     
+      <Route path="/p" element={<AdminDashboard />} />
+          <Route path="/add" element={<Forms />} />
+          <Route path="/ItemList" element={<ItemList />} />
+          <Route path="/New/:id" element={<EditEmployee />} />
+          <Route path="/add" element={<Footer />} />
         </Routes>
-        <Chat/>
     </BrowserRouter>
+
   );
 }
 

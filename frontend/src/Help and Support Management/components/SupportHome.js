@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './SupportHome.css'; // Import your CSS file
+import './SupportHome.css';
+import Chat from "./Chat"; // Import your CSS file
 
 const SupportHome = () => {
   return ( 
@@ -123,6 +124,7 @@ const SupportHome = () => {
               <Link to="/Feedbackadd" className="btn btn-primary">
               Give your Feedback <i className="bi bi-arrow-right"></i>
               </Link>
+              <Chat />
             </div>
           </div>
 

@@ -6,6 +6,13 @@ const path = require('path');
 const multer = require('multer');
 require('dotenv').config();
 
+
+
+
+
+
+
+
 // Express app
 const app = express();
 
@@ -35,6 +42,13 @@ connection.once('open', () => {
 });
 
 // Routes
+
+//awi
+const employeeSalaryRouter = require("./routes/Salary_and_Benefits_Management/employees.js"); // Change the import to employeeRouter
+
+app.use("/Salary_and_Benefits_Management/employee", employeeSalaryRouter); // Change the route to "/employee"
+
+
 const shuttleRouter = require('./routes/TransportationManagement/Shuttles');
 app.use('/project', shuttleRouter);
 
@@ -158,3 +172,4 @@ app.use('/uploads', express.static('uploads'));
 app.listen(PORT, () => {
   console.log(`Server is up and running on port number: ${PORT}`);
 });
+
