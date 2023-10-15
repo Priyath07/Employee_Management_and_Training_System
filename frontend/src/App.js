@@ -123,9 +123,7 @@ function App() {
           <Route path="/ItemList" element={<ItemList />} />
           <Route path="/New/:id" element={<EditEmployee />} />
           <Route path="/add" element={<Footer />} />
-          
         </Routes>
-        <Chat/>
     </BrowserRouter>
 
   );
