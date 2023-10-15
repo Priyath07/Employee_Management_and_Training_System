@@ -14,7 +14,7 @@ import ApplyShuttle from './Transportation Management/components/Apply/ApplyShut
 import Passenger from './Transportation Management/components/Apply/Passenger';
 import DriverPassenger from './Transportation Management/components/Apply/DriverPassenger';
 import PassengerReport from './Transportation Management/components/Apply/PassengerReport';
-import Home from './Transportation Management/components/Home/Home';
+import TransportHome from './Transportation Management/components/Home/TransportHome';
 import LearnMore from './Transportation Management/components/AddShuttle/LearnMore';
 
 // Help
@@ -63,18 +63,22 @@ import Resigning from "./Recruit and Resigning Management/Resigning";
 import AllResigning from "./Recruit and Resigning Management/AllResigning";
 //Awi
 
-import Navbar from "./Salary_and_Benefits_Management/components/Navbar";
 import Forms from "./Salary_and_Benefits_Management/components/Forms";
 import ItemList from "./Salary_and_Benefits_Management/components/ItemList";
 import EditEmployee from "./Salary_and_Benefits_Management/components/EditEmployee";
 import AdminDashboard from "./Salary_and_Benefits_Management/components/AdminDashboard";
 import Footer from "./Salary_and_Benefits_Management/components/Footer";
-       
+   
+//thisun
+// pages & components
+
 
 function App() {
   return (
+    
     <BrowserRouter>
-   
+ 
+
       
         <Routes>
         <Route path="/" element={<EmployeeManagement />} />
@@ -85,7 +89,7 @@ function App() {
           <Route path="/Passenger" exact element={<Passenger/>}/>
           <Route path="/DriverPassenger" exact element={<DriverPassenger/>}/>
           <Route path="/report" exact element={<PassengerReport/>}/>
-          <Route path="/Home" exact element={<Home/>}/>
+          <Route path="/TransportHome" exact element={<TransportHome/>}/>
           <Route path="/LearnMore" exact element = {<LearnMore/>}/>
         
 
@@ -98,17 +102,17 @@ function App() {
           <Route path='/FAQ' exact element = {<FAQ/>}/>
           <Route path="/TicketDetail/:id" exact element={<TicketDetail/>} />
  {/* Attendance */}
-        <Route path='/attendance' exact element={<Attendance/>}/>
+ <Route path='/attendance' exact element={<Attendance/>}/>
         <Route path='/leave/Leave' exact element={<Leave/>}/>
         <Route path='/HRleave' exact element={<HRleave/>}/>
         <Route path='/AttendanceForm' exact element={<AttendanceForm/>}/>
         <Route path='/AttendanceSheet' exact element={<AttendanceSheet/>}/>
-        <Route path='/AM' exact element={<ApprovedMedicFront/>}/>
+        <Route path='HRfront/AM' exact element={<ApprovedMedicFront/>}/>
         <Route path='/OffTimeadd' exact element={<OffTimeForm/>}/>
         <Route path='/offTimeDis' exact element={<OffTimeTable/>}/>
-        <Route path='/HDdis' exact element={<ApprovedHalfDayFront/>}/>
+        <Route path='HRfront/HDdis' exact element={<ApprovedHalfDayFront/>}/>
         <Route path='/addHD' exact element={<ApprovedHalfDayFront/>}/>
-        <Route path='/DL' exact element={<ApprovedDutyLvFront/>}/>
+        <Route path='HRfront/DL' exact element={<ApprovedDutyLvFront/>}/>
         <Route path= '/HRfront' exact element={<HRfront/>}/>
         <Route path= '/LeaveHistoryFront' exact element={<LeaveHistoryFront/>}/>
         <Route path= '/leave/LeaveHistory' exact element={<LeaveHistory/>}/>
@@ -139,8 +143,12 @@ function App() {
           <Route path="/ItemList" element={<ItemList />} />
           <Route path="/New/:id" element={<EditEmployee />} />
           <Route path="/add" element={<Footer />} />
+        
+        
+       
         </Routes>
     </BrowserRouter>
+    
 
   );
 }
