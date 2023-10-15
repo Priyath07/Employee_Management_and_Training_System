@@ -122,11 +122,12 @@ function AdminProfile() {
                    <Link to={`/AllFeedbacks`}>View Feedback</Link>
                    <Link to={`/AllTickets`}>View Tickets</Link>
                    <Link to={`/AddShuttle`}>Add Shuttle</Link>
+                   <Link to={`/AllShuttls`}>All Shuttles</Link>
                    <Link to={`/Passenger`}>View Passenger</Link>
                    <Link to={`/DriverPassenger`}>Driver Passenger List</Link>
                    <Link to={`/report`}>View Passenger Report</Link>
                    <Link to={`/HRfront`}>View Attendance Sheet Leave Request</Link>
-                   
+                   <Link to={`/AllRecruits`}>Recruit-Details</Link>
                    <Link to={`/login`}>Log Out</Link>
               </div>
               </div>

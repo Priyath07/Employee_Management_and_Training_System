@@ -47,7 +47,7 @@ const EmployeeManagement = () => {
             <Col>
               <h1>Welcome to the Employee Management System</h1>
               <p>Manage your employees with ease.</p>
-              <Button variant="primary" href="/apply">
+              <Button variant="primary" href="/Recruit">
                 APPLY NOW
               </Button>
             </Col>

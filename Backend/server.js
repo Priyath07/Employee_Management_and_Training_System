@@ -111,6 +111,11 @@ app.post('/upload', upload.single('VehicleImage'), (req, res) => {
 const personRoutes = require('./routes/Customer Management/person.js');
 app.use('/person', personRoutes);
 
+const recruitRoutes = require('./routes/Recruit and Resigning Management/Recruit.js');
+app.use('/Recruit', recruitRoutes);
+
+const resigningRoutes = require('./routes/Recruit and Resigning Management/Resigning.js'); // Import your resigning routes
+app.use('/resigning', resigningRoutes);
 
 // Use the authRoutes for authentication
 

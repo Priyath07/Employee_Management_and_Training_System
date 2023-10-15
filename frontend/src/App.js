@@ -49,6 +49,13 @@ import LecturerProfile from './Customer Management/Components/LecturerProfile';
 import DriverProfile from './Customer Management/Components/DriverProfile';
 import EmployeeProfile from './Customer Management/Components/EmployeeProfile';
 
+//kavi
+import Recruit from "./Recruit and Resigning Management/Recruit";
+import RecruitDetail from "./Recruit and Resigning Management/RecruitDetail";
+import RecruitView from "./Recruit and Resigning Management/AllRecruits";
+import AllRecruits from "./Recruit and Resigning Management/AllRecruits";
+import Resigning from "./Recruit and Resigning Management/Resigning";
+import AllResigning from "./Recruit and Resigning Management/AllResigning";
 
        
 
@@ -106,7 +113,14 @@ function App() {
         <Route path="/person/update/:id" element={<UpdatePersonForm />} />
     
       
-          
+       {/* kavi */}
+       <Route exact path="/Recruit" element={<Recruit/>} />
+      <Route path="/RecruitDetail/:id" element={<RecruitDetail/>} />
+      <Route path="/AllRecruits" element={<AllRecruits/>} />
+      <Route path="/Resigning" element={<Resigning/>} />
+      <Route path="/AllResigning" element={<AllResigning/>} />
+               
+    
         </Routes>
         <Chat/>
     </BrowserRouter>
