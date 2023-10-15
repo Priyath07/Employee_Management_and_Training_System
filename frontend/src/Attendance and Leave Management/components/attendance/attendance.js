@@ -218,7 +218,8 @@ time:formattedTime,
                
                 
                 {/* <Link to="/HRleave">Show Leave Requests</Link> <br/><br/> */}
-                <Link to="/AttendanceForm">AttendanceForm</Link> 
+                <Link to="/AttendanceForm">Attendance Form</Link> <br/><br/>
+                <Link to="/OffTimeadd">Off Time Form</Link> 
                
                </ul>
                </section>

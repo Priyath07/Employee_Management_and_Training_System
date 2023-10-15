@@ -212,7 +212,10 @@ const RecruitDetail = () => {
       <p><strong>City:</strong> {recruitData.city}</p>
       <p><strong>Graduate:</strong> {recruitData.graduate}</p>
       <p><strong>Diploma:</strong> {recruitData.diploma}</p>
-
+       <p><strong>Uploaded CV:</strong>{recruitData.cv}</p>
+        <a href={`http://localhost:8070/${recruitData.cv}`} target="_blank" rel="noopener noreferrer">View CV</a>
+      
+      
       <div className="reply-section">
         <h3>Reply via Email</h3>
         <textarea

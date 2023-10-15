@@ -2,7 +2,7 @@ import React from 'react';
 import './Home.css'; // Import your CSS file
 import { Link } from "react-router-dom";
 
-const Home = () => {
+const TransportHome = () => {
   return (  
     <div className="Home-container">
       <div className="Home-content-container">
@@ -37,4 +37,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default TransportHome;

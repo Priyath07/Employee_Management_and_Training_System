@@ -55,12 +55,8 @@ const AllRecruits = () => {
             <th>Full Name</th>
             <th>Email</th>
             <th>NIC</th>
-            <th>Education</th> {/* Added Education */}
-            <th>High School</th> {/* Added High School */}
-            <th>City</th> {/* Added City */}
-            <th>Graduate</th> {/* Added Graduate */}
-            <th>Diploma</th> {/* Added Diploma */}
-            <th>Actions</th>
+           <th>City</th> {/* Added City */}
+           <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -69,12 +65,8 @@ const AllRecruits = () => {
               <td>{recruit.fullName}</td>
               <td>{recruit.email}</td>
               <td>{recruit.nic}</td>
-              <td>{recruit.education}</td> {/* Added Education */}
-              <td>{recruit.highSchool}</td> {/* Added High School */}
               <td>{recruit.city}</td> {/* Added City */}
-              <td>{recruit.graduate}</td> {/* Added Graduate */}
-              <td>{recruit.diploma}</td> {/* Added Diploma */}
-              <td>
+             <td>
                 <Link to={`/RecruitDetail/${recruit._id}`}>View</Link>
               </td>
             </tr>
