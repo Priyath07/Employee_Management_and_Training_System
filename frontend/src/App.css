@@ -2,6 +2,19 @@
   text-align: center;
 }
 
+.App {
+  text-align: center;
+  margin-top: 50px;
+  font-family: Arial, sans-serif;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Add more styles as needed */
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
