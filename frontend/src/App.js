@@ -47,6 +47,7 @@ import PersonList from './Customer Management/Components/PersonList';
 import AddEmployee from './Customer Management/Components/AddEmployee';
 import PersonDetails from './Customer Management/Components/PersonDetails';
 import UpdatePersonForm from './Customer Management/Components/UpdatePersonForm';
+import UpdateEmployee from './Customer Management/Components/UpdateEmployee';
 import Login from './Customer Management/Components/Login';
 import AdminProfile from './Customer Management/Components/AdminProfile';
 import LecturerProfile from './Customer Management/Components/LecturerProfile';
@@ -122,7 +123,7 @@ function App() {
         <Route path="/person/employee/itNumber/:itNumber" element={ <EmployeeProfile />}/>
         <Route exact path="/login" element={<Login/>} />
         <Route path="/person/update/:id" element={<UpdatePersonForm />} />
-    
+        <Route path="/person/employee/update/:id" element={<UpdateEmployee />} />
       {/* Awi */}
       
        {/* kavi */}

@@ -29,7 +29,7 @@ function UpdatePersonForm() {
         setIsUpdated(true);
         alert('Employee Updated!'); // Set the flag to show the alert
         // Redirect to the person details page
-        navigate(`/person/nationalId/${person.nationalId}`);
+        navigate(`/person/employee/itNumber/${person.itNumber}`);
       })
       .catch((error) => {
         console.error('Error updating user details:', error);
@@ -111,9 +111,7 @@ function UpdatePersonForm() {
         <br/>
         <br/>
        
-        <button className='custom-button'>
-        <Link to={`/`}  >Go to Profile</Link>
-            </button>
+        
       </form>
     </div>
   );
