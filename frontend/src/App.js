@@ -144,14 +144,7 @@ function App() {
           <Route path="/add" element={<Footer />} />
         
         
-        {/* //thisun */}
-
-        {/* <Route path='/THome' element={<Home />} />
-              <Route path='/Plogin' element={<PLogin />} />
-              <Route path='/signup' element={<Signup />} />
-              <Route path='/employee' element={<Employee />} />
-              <Route path='/employee/:id' element={<ProjectView />} />
-             */}
+       
         </Routes>
     </BrowserRouter>
     
