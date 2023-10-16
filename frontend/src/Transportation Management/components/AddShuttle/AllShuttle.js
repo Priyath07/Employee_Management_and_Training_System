@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import './AllShuttle.css';
 
 
-const AllShuttles = () => {
+const AllShuttle = () => {
   const [query, setQuery] = useState('');
   const handleSearch = () => {
     if (!query) {
@@ -32,19 +32,17 @@ const AllShuttles = () => {
     VehicleNumber: '',
     Route: '',
     VehicleType: '',
-    VehicleImage: "",
+    
   });
   const [editedShuttleId, setEditedShuttleId] = useState(null);
   const [selectedRoute, setSelectedRoute] = useState('');
   const [selectedType, setSelectedType] = useState('');
-  const [VehicleImage, setImage] = useState(null);
-  const [previewFile, setPreviewFile] = useState(null);
   const [selectedDriverName, setSelectedDriverName] = useState('');
   // useEffect
   useEffect(() => {
     const getShuttles = () => {
       axios
-        .get('http://localhost:8070/shuttle')
+        .get('http://localhost:8070/shuttle/shuttles')
         .then((res) => {
           setShuttles(res.data);
           setFilteredShuttles(res.data); // Set filteredShuttles to all shuttles initially
@@ -65,8 +63,7 @@ const AllShuttles = () => {
     setSelectedRoute(shuttle.Route);
     setSelectedType(shuttle.VehicleType); 
     setSelectedDriverName(shuttle.DriverName);
-    setImage(null); // Clear previously selected image
-    setImage(`http://localhost:8070/${shuttle.VehicleImage}`);
+   
  };
 
   const handleSaveShuttle = () => {
@@ -77,17 +74,12 @@ const AllShuttles = () => {
     formData.append('Route', selectedRoute);
     formData.append('VehicleType', editedShuttle.VehicleType);
     formData.append('DriverName', editedShuttle.DriverName);
-    if (File) {
-      formData.append("VehicleImage", File);
-    }
+    
     axios
-      .put(`http://localhost:8070/shuttle/update/${editedShuttleId}`, formData)
+      .put(`http://localhost:8070/shuttle/shuttles/${editedShuttleId}`, formData)
       .then(() => {
         alert('Shuttle updated successfully');
         setIsEditing(false);
-        if (File) {
-          setPreviewFile(URL.createObjectURL(File)); // Update preview with new image
-        }
         
         setShuttles((prevShuttles) =>
           prevShuttles.map((shuttle) =>
@@ -110,7 +102,7 @@ const AllShuttles = () => {
 
     if (confirmDeletion) {
       axios
-        .delete(`http://localhost:8070/shuttle/delete/${shuttleId}`)
+        .delete(`http://localhost:8070/shuttle/shuttles/${shuttleId}`)
         .then((response) => {
           // Handle the response if needed
           // Remove the deleted shuttle from the list
@@ -169,7 +161,7 @@ const AllShuttles = () => {
           <tr>
             <th>Vehicle Number</th>
             <th onClick={toggleSortDirection}>Route</th>
-            <th>Vehicle File</th>
+          
             <th>Vehicle Type</th>
             <th>Driver Name</th>
             <th>Actions</th>
@@ -216,22 +208,7 @@ const AllShuttles = () => {
                   shuttle.Route
                 )}
               </td>
-              <td>
-              {isEditing && editedShuttle._id === shuttle._id ? (
-                  <input
-                    type="file"
-                    className="form-control"
-                    onChange={(e) => {
-                      const file = e.target.files[0];
-                      setImage(file); 
-                      setPreviewFile(URL.createObjectURL(file)); 
-                    }}
-                  />
-                ) : (
-                  <a href={`http://localhost:8070/${shuttle.VehicleImage}`} download target="_blank" rel="noopener noreferrer">
-                 <h5>More Details</h5> </a>
-                )}
-              </td>
+          
                  
                 
 
@@ -284,5 +261,41 @@ const AllShuttles = () => {
   );
 };
 
-export default AllShuttles;
+export default AllShuttle;
 
+// import React, { useState, useEffect } from "react";
+// import axios from "axios";
+// import './Shuttle.css';
+
+// const AllShuttle = () => {
+//   const [shuttles, setShuttles] = useState([]);
+
+//   useEffect(() => {
+//     // Make an HTTP GET request to fetch all shuttle data
+//     axios.get("http://localhost:8070/shuttle/shuttles")
+//       .then((response) => {
+//         setShuttles(response.data); // Update the state with the retrieved data
+//       })
+//       .catch((error) => {
+//         console.error(error);
+//       });
+//   }, []); // The empty dependency array ensures this effect runs only once, like componentDidMount
+
+//   return (
+//     <div className="container">
+//       <h2>All Shuttle Data</h2>
+//       <ul>
+//         {shuttles.map((shuttle) => (
+//           <li key={shuttle._id}>
+//             Vehicle Number: {shuttle.VehicleNumber}<br />
+//             Route: {shuttle.Route}<br />
+//             Driver Name: {shuttle.DriverName}<br />
+//             Vehicle Type: {shuttle.VehicleType}<br />
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
+
+// export default AllShuttle;

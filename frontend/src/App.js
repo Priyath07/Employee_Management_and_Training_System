@@ -8,15 +8,15 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import EmployeeManagement from './EmployeeManagement';
 // Transport
 import AddShuttle from './Transportation Management/components/AddShuttle/Shuttle';
+import AllShuttle from './Transportation Management/components/AddShuttle/AllShuttle';
 import Header from './Transportation Management/components/AddShuttle/Header';
-import AllShuttles from './Transportation Management/components/AddShuttle/AllShuttle';
 import ApplyShuttle from './Transportation Management/components/Apply/ApplyShuttle';
 import Passenger from './Transportation Management/components/Apply/Passenger';
 import DriverPassenger from './Transportation Management/components/Apply/DriverPassenger';
 import PassengerReport from './Transportation Management/components/Apply/PassengerReport';
 import Home from './Transportation Management/components/Home/Home';
 import LearnMore from './Transportation Management/components/AddShuttle/LearnMore';
-
+import Shuttle from './Transportation Management/components/AddShuttle/Shuttle';
 // Help
 import AddFeedback from './Help and Support Management/components/Feedback/Feedback';
 import SupportHome from './Help and Support Management/components/SupportHome';
@@ -79,7 +79,8 @@ function App() {
         <Route path="/" element={<EmployeeManagement />} />
  {/* Transport */}
           <Route path="/AddShuttle" exact element={<AddShuttle/>}/>
-          <Route path='/AllShuttles' exact element = {<AllShuttles/>}/>
+          <Route path="/Shuttle" exact element={<Shuttle/>}/>
+          <Route path="/AllShuttle" exact element={<AllShuttle/>}/>
           <Route path="/ApplyShuttle" exact element={<ApplyShuttle/>}/>
           <Route path="/Passenger" exact element={<Passenger/>}/>
           <Route path="/DriverPassenger" exact element={<DriverPassenger/>}/>

@@ -10,7 +10,7 @@ const AddShuttle = () => {
     const [DriverName , setDriverName] = useState("")
     const [submitted, setSubmitted] = useState(false);
     const [VehicleType, setType] = useState("");
-    const [VehicleImage, setImage] = useState(null);
+
 
     function sendData(e){ 
         e.preventDefault()
@@ -19,11 +19,11 @@ const AddShuttle = () => {
         formData.append("VehicleNumber", VehicleNumber);
         formData.append("Route", Route);
         formData.append("VehicleType", VehicleType);
-        formData.append("VehicleImage", VehicleImage);
+       
         formData.append("DriverName", DriverName);
 
         axios
-          .post("http://localhost:8070/shuttle/add", formData, {
+          .post("http://localhost:8070/shuttle/shuttleadd", formData, {
             headers: {
               "Content-Type": "multipart/form-data", // Set the content type to form data for file uploads
             },
@@ -80,19 +80,6 @@ const AddShuttle = () => {
 
       
         
-        <div className="mb-3">
-          <label htmlFor="VehicleImage" className="form-label">
-            Vehicle Image
-          </label>
-          <input
-            type="file"
-            className="form-control"
-            id="VehicleImage"
-            onChange={(e) => {
-setImage(e.target.files[0]);
-            }}
-          />
-        </div>
 
 
                 <div className="mb-3">
@@ -135,3 +122,5 @@ setImage(e.target.files[0]);
 }
  
 export default AddShuttle;
+
+

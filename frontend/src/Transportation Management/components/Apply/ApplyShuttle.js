@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-
 const ApplyShuttle = () => {
   const [Name, setName] = useState("");
   const [Id, setId] = useState("");
@@ -9,10 +8,71 @@ const ApplyShuttle = () => {
   const [Route, setRoute] = useState("");
   const [PickupLocation, setPickupLocation] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  
+  const [idError, setIdError] = useState("");
+  const [nameError, setNameError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+
+  // Validation functions
+
+  function isIdValid(id) {
+    return id.startsWith("IT");
+  }
+
+  function isNameValid(name) {
+    return isNaN(name) && name.length > 1;
+  }
+
+  function isPhoneValid(phone) {
+    return /^\d{10}$/.test(phone);
+  }
+
+  const handleIdChange = (e) => {
+    const newId = e.target.value;
+    setId(newId);
+    if (!isIdValid(newId)) {
+      setIdError("ID should start with 'IT'");
+    } else {
+      setIdError("");
+    }
+  };
+
+  const handleNameChange = (e) => {
+    const newName = e.target.value;
+    setName(newName);
+    if (!isNameValid(newName)) {
+      setNameError("Name should have more than one letter");
+    } else {
+      setNameError("");
+    }
+  };
+
+  const handlePhoneChange = (e) => {
+    const newPhone = e.target.value;
+    setPhoneNo(newPhone);
+    if (!isPhoneValid(newPhone)) {
+      setPhoneError("Please enter a valid 10-digit phone number");
+    } else {
+      setPhoneError("");
+    }
+  };
 
   function sendData(e) {
     e.preventDefault();
+
+    if (!isIdValid(Id)) {
+      alert("ID should start with 'IT'");
+      return;
+    }
+
+    if (!isNameValid(Name)) {
+      alert("Name should have more than one letter");
+      return;
+    }
+
+    if (!isPhoneValid(PhoneNo)) {
+      alert("Please enter a valid 10-digit phone number");
+      return;
+    }
 
     const newApply = {
       Name,
@@ -32,27 +92,26 @@ const ApplyShuttle = () => {
       .catch((error) => {
         alert("Fill all fields");
       });
-      
   }
-  
-  const [liveLocationLink, setLiveLocationLink] = useState(''); // State to store the live location link
+
+  const [liveLocationLink, setLiveLocationLink] = useState(""); // State to store the live location link
 
   // Function to fetch live location and set the link
   const fetchLiveLocation = () => {
     // Use Google Maps Geocoding API to retrieve the live location based on the pickup location
     const location = encodeURIComponent(PickupLocation); // Encode the pickup location for the URL
-    const apiKey = 'AIzaSyCJ4YE3oVAeebRV15VshtKSl8rMPljNba4'; // Replace with your actual Google Maps API Key
+    const apiKey = 'YOUR_GOOGLE_MAPS_API_KEY'; // Replace with your actual Google Maps API Key
 
     axios
       .get(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=Colombo,+SriLanka&key={AIzaSyCJ4YE3oVAeebRV15VshtKSl8rMPljNba4}`
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${apiKey}`
       )
       .then((response) => {
         const { results } = response.data;
         if (results.length > 0) {
           const { geometry } = results[0];
-          const { lat, lng } = geometry.location;
-          const link = `https://www.google.com/maps?q=${lat},${lng}`; // Create the live location link
+          const { location } = geometry;
+          const link = `https://www.google.com/maps?q=${location.lat},${location.lng}`; // Create the live location link
           setLiveLocationLink(link);
         } else {
           alert('Location not found. Please check your pickup location.');
@@ -63,7 +122,7 @@ const ApplyShuttle = () => {
         alert('Error fetching location. Please try again.');
       });
   };
-  
+
   return (
     <div className="container">
       <form onSubmit={sendData}>
@@ -76,8 +135,9 @@ const ApplyShuttle = () => {
             className="form-control"
             id="Name"
             placeholder=""
-            onChange={(e) => setName(e.target.value)}
+            onChange={handleNameChange}
           />
+          {nameError && <div className="text-danger">{nameError}</div>}
         </div>
         <div className="mb-3">
           <label htmlFor="Id" className="form-label">
@@ -88,10 +148,10 @@ const ApplyShuttle = () => {
             className="form-control"
             id="Id"
             placeholder=""
-            onChange={(e) => setId(e.target.value)}
+            onChange={handleIdChange}
           />
+          {idError && <div className="text-danger">{idError}</div>}
         </div>
-
         <div className="mb-3">
           <label htmlFor="PhoneNo" className="form-label">
             Phone no
@@ -101,10 +161,11 @@ const ApplyShuttle = () => {
             className="form-control"
             id="PhoneNo"
             placeholder="Enter your phone number"
-            onChange={(e) => setPhoneNo(e.target.value)}
+            onChange={handlePhoneChange}
           />
+          {phoneError && <div className="text-danger">{phoneError}</div>}
         </div>
-
+        {/* Rest of your form elements */}
         <div className="mb-3">
           <label htmlFor="Route" className="form-label">
             Route
@@ -164,4 +225,3 @@ const ApplyShuttle = () => {
 };
 
 export default ApplyShuttle;
-
