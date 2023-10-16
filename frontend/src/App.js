@@ -8,15 +8,15 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import EmployeeManagement from './EmployeeManagement';
 // Transport
 import AddShuttle from './Transportation Management/components/AddShuttle/Shuttle';
+import AllShuttle from './Transportation Management/components/AddShuttle/AllShuttle';
 import Header from './Transportation Management/components/AddShuttle/Header';
-import AllShuttles from './Transportation Management/components/AddShuttle/AllShuttle';
 import ApplyShuttle from './Transportation Management/components/Apply/ApplyShuttle';
 import Passenger from './Transportation Management/components/Apply/Passenger';
 import DriverPassenger from './Transportation Management/components/Apply/DriverPassenger';
 import PassengerReport from './Transportation Management/components/Apply/PassengerReport';
 import TransportHome from './Transportation Management/components/Home/TransportHome';
 import LearnMore from './Transportation Management/components/AddShuttle/LearnMore';
-
+import Shuttle from './Transportation Management/components/AddShuttle/Shuttle';
 // Help
 import AddFeedback from './Help and Support Management/components/Feedback/Feedback';
 import SupportHome from './Help and Support Management/components/SupportHome';
@@ -69,8 +69,14 @@ import EditEmployee from "./Salary_and_Benefits_Management/components/EditEmploy
 import AdminDashboard from "./Salary_and_Benefits_Management/components/AdminDashboard";
 import Footer from "./Salary_and_Benefits_Management/components/Footer";
    
-//thisun
-// pages & components
+//priyath
+import CourseForms from "./Course_Creation_and_Management/component/CourseForms";
+import AddedCourses from "./Course_Creation_and_Management/component/AddedCourses";
+import CourseEdit from "./Course_Creation_and_Management/component/CourseEdit";
+import CourseHome from "./Course_Creation_and_Management/component/CourseHome";
+import CourseDetail from "./Course_Creation_and_Management/component/CourseDetail";
+import CourseBuy from "./Course_Creation_and_Management/component/CourseBuy";
+import PaymentDetailsPage from "./Course_Creation_and_Management/component/PaymentDetailsPage";
 
 
 function App() {
@@ -84,7 +90,8 @@ function App() {
         <Route path="/" element={<EmployeeManagement />} />
  {/* Transport */}
           <Route path="/AddShuttle" exact element={<AddShuttle/>}/>
-          <Route path='/AllShuttles' exact element = {<AllShuttles/>}/>
+          <Route path="/Shuttle" exact element={<Shuttle/>}/>
+          <Route path="/AllShuttle" exact element={<AllShuttle/>}/>
           <Route path="/ApplyShuttle" exact element={<ApplyShuttle/>}/>
           <Route path="/Passenger" exact element={<Passenger/>}/>
           <Route path="/DriverPassenger" exact element={<DriverPassenger/>}/>
@@ -145,7 +152,16 @@ function App() {
           <Route path="/add" element={<Footer />} />
         
         
-       
+       {/* priyath */}
+          <Route path="/AddedCourses" exact element={<AddedCourses/>} />
+          <Route path="/Courseadd" exact element={<CourseForms/>} />
+          <Route path="/update/:id" element={<CourseEdit/>}/>
+          <Route path="/course/:id" element={<CourseDetail/>} />
+          <Route path="/course" element={<CourseHome/>} />
+          <Route path="/get/:id" element={<CourseDetail/>} />
+          <Route path="/coursePaymentAdd" element={<CourseBuy/>}/>
+          <Route path="/coursePaymentAll" element={<PaymentDetailsPage/>}/>
+        
         </Routes>
     </BrowserRouter>
     
