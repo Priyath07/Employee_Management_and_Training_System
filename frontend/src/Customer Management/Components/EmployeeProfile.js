@@ -7,7 +7,7 @@ import '../css/DropdownMenu.css';
 import { Link } from 'react-router-dom';
 import Frame from '../img/Frame.png';
 
-function LecturerProfile() {
+function EmployeeProfile() {
   const { itNumber } = useParams(); // Update to use itNumber
   const [person, setPerson] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -123,6 +123,7 @@ function LecturerProfile() {
                    <Link to={`/SupportHome`}>Help and Support</Link>
                    <Link to={``}>View Salary</Link>
                    <Link to={`/Resigning`}>Apply Resigning</Link>
+                   <Link to={`/course`}>Courses</Link>
                    <Link to={`/attendance`}>View Attendance and Leave</Link>
                    <Link to={`/login`}>Log Out</Link>
               </div>
@@ -137,4 +138,4 @@ function LecturerProfile() {
   );
 }
 
-export default LecturerProfile;
+export default EmployeeProfile;

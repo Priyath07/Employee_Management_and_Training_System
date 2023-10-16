@@ -128,6 +128,7 @@ function AdminProfile() {
                    <Link to={`/report`}>View Passenger Report</Link>
                    <Link to={`/HRfront`}>View Attendance Sheet Leave Request</Link>
                    <Link to={`/AllRecruits`}>Recruit-Details</Link>
+                   <Link to={`/Courseadd`}>Create Course</Link>
                    <Link to={`/login`}>Log Out</Link>
               </div>
               </div>
