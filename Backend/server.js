@@ -174,3 +174,13 @@ app.listen(PORT, () => {
   console.log(`Server is up and running on port number: ${PORT}`);
 });
 
+const courseRouter = require("./routes/Course_Creation_and_Management/course.js");
+app.use("/Course_Creation_and_Management/course", courseRouter);
+
+const lecture = require('./routes/Course_Creation_and_Management/lecture.js');
+app.use('/Course_Creation_and_Management/lecture', lecture);
+
+// Include your payment routes
+const paymentRoutes = require(`./routes/Course_Creation_and_Management/CoursePaymnet.js`);
+app.use("/Course_Creation_and_Management/CoursePayment", paymentRoutes);
+
