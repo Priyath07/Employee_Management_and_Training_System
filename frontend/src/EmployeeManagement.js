@@ -1,60 +1,63 @@
 import React from 'react';
 import { Container, Row, Col, Navbar, Button, Card } from 'react-bootstrap';
-import './EmployeeManagement.css';
 
 const EmployeeManagement = () => {
-  const footerStyle = {
-    background: '#1F4172',
-    color: 'black',
-    padding: '20px 0',
-  };
-
-  const headingStyle = {
-    background: 'url(/home.jpg) no-repeat center center fixed',
+  const headerBackground = {
+    background: 'url(/home2.jpg) no-repeat center center fixed',
     backgroundSize: 'cover',
     color: 'white',
     textAlign: 'center',
     padding: '200px 0',
+    opacity: 0.9,
   };
 
-  const featureCardStyle = {
+  const featureCard = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
     height: '100%',
+    marginBottom: '20px', // Add margin to the bottom of each card
   };
 
-  const featureCardContentStyle = {
+  const featureCardContent = {
     padding: '20px',
     textAlign: 'center',
   };
 
+  const linkStyle = {
+    color: 'white',
+    textDecoration: 'none',
+  };
+  const footerStyle = {
+    background: '#001C30',
+    color: 'white',
+    padding: '40px 0',
+  };
+
   return (
-    <div>
+    <div className="employee-management-page">
       <Container fluid>
-        <Navbar bg="light" variant="light" className="landing-nav">
+        <Navbar bg="light" variant="light" className="employee-management-nav">
           <Navbar.Collapse className="justify-content-end">
             <Button variant="primary" href="/login">
               Login
             </Button>
-            <Button variant="secondary" href="/signup">
-              Sign Up
-            </Button>
           </Navbar.Collapse>
         </Navbar>
-        <div style={headingStyle}>
+        <div style={headerBackground} className="employee-management-header">
           <Row>
             <Col>
-              <h1>Welcome to the Employee Management System</h1>
-              <p>Manage your employees with ease.</p>
-              <Button variant="primary" href="/Recruit">
+              <h1>WELCOME TO EMPLOYEE MANAGEMENT SYSTEM</h1>
+              <p style={{ color: 'white'}}>Manage your employees with ease.</p>
+              <Button variant="primary" href="/apply">
                 APPLY NOW
               </Button>
             </Col>
           </Row>
         </div>
+
         <Row
-          className="landing-apply"
+          className="employee-management-apply"
           style={{
             marginTop: '20px',
             backgroundColor: '#f4f4f4',
@@ -63,47 +66,80 @@ const EmployeeManagement = () => {
             alignItems: 'center',
           }}
         >
-          <Col md={6} className="landing-apply-text">
+          <Col md={6} className="employee-management-apply-text">
             <h2>Applying for a Job</h2>
             <p>Explore our job opportunities and apply to join our team. Your future career starts here.</p>
           </Col>
-          <Col md={6} className="landing-apply-button d-flex align-items-center">
+          <Col md={6} className="employee-management-apply-button d-flex align-items-center">
             <Button variant="primary" href="/job-opportunities">
               View Job Opportunities
             </Button>
           </Col>
         </Row>
 
-        {/* Feature Cards Section */}
-      
-        <Row style={{ marginTop: '40px', marginBottom: '40px'  }}>
-        <h1>KEY FEATURES </h1>
-          <Col md={4}>
-            <Card style={featureCardStyle}>
+        <Row style={{ marginTop: '40px', marginBottom: '40px' }}>
+          <Col md={12} className="text-center employee-management-features">
+            <h1>KEY FEATURES</h1>
+          </Col>
+        </Row>
+
+        <Row className="justify-content-center">
+          <Col md={6} style={{ marginBottom: '20px' }}>
+            <Card style={featureCard} className="employee-management-feature-card">
               <Card.Body>
-                <Card.Title>Employee Management</Card.Title>
-                <Card.Text style={featureCardContentStyle}>
+                <Card.Title>EMPLOYEE MANAGEMENT</Card.Title>
+                <Card.Text style={featureCardContent} className="employee-management-feature-content">
                   Manage your employees efficiently and effectively. Keep track of their profiles, performance, and more.
                 </Card.Text>
               </Card.Body>
             </Card>
           </Col>
-          <Col md={4}>
-            <Card style={featureCardStyle}>
+          <Col md={6} style={{ marginBottom: '20px' }}>
+            <Card style={featureCard} className="employee-management-feature-card">
               <Card.Body>
-                <Card.Title>Salary Management</Card.Title>
-                <Card.Text style={featureCardContentStyle}>
+                <Card.Title>CUSTOMER SUPPORT</Card.Title>
+                <Card.Text style={featureCardContent} className="employee-management-feature-content">
+                  We manage all customer inquiries and provide necessary information.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col md={6} style={{ marginBottom: '20px' }}>
+            <Card style={featureCard} className="employee-management-feature-card">
+              <Card.Body>
+                <Card.Title>SALARY MANAGEMENT</Card.Title>
+                <Card.Text style={featureCardContent} className="employee-management-feature-content">
                   Streamline your salary management process. Calculate, distribute, and keep records of employee salaries.
                 </Card.Text>
               </Card.Body>
             </Card>
           </Col>
-          <Col md={4}>
-            <Card style={featureCardStyle}>
+          <Col md={6} style={{ marginBottom: '20px' }}>
+            <Card style={featureCard} className="employee-management-feature-card">
               <Card.Body>
-                <Card.Title>Project Management</Card.Title>
-                <Card.Text style={featureCardContentStyle}>
+                <Card.Title>PROJECT MANAGEMENT</Card.Title>
+                <Card.Text style={featureCardContent} className="employee-management-feature-content">
                   Organize and track your projects efficiently. Assign tasks, set deadlines, and monitor progress.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col md={6} style={{ marginBottom: '20px' }}>
+            <Card style={featureCard} className="employee-management-feature-card">
+              <Card.Body>
+                <Card.Title>SHUTTLE SERVICE</Card.Title>
+                <Card.Text style={featureCardContent} className="employee-management-feature-content">
+                  Our company is proud to provide a convenient and efficient shuttle service for our employees and clients. Our shuttle service is designed to make transportation to and from our facilities as seamless as possible.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col md={6} style={{ marginBottom: '20px' }}>
+            <Card style={featureCard} className="employee-management-feature-card">
+              <Card.Body>
+                <Card.Title>RECRUITEMENT AND RESIGNING</Card.Title>
+                <Card.Text style={featureCardContent} className="employee-management-feature-content">
+                  Company employee recruitment and resigning employees can also be done through our system.
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -111,16 +147,31 @@ const EmployeeManagement = () => {
         </Row>
       </Container>
 
-      {/* Footer Section */}
-      <div style={footerStyle}>
+      <div style={footerStyle} className="employee-management-footer">
         <Container>
           <Row>
             <Col>
               <h3>Contact Us</h3>
-              <p>
+              <p style={{ color: 'white'}}>
                 If you have any questions, feel free to contact us at{' '}
-                <a href="mailto:contact@employee-system.com">info@enterprisepro.com</a>
+                <a style={linkStyle} href="mailto:contact@employee-system.com">info@enterprisepro.com</a>
               </p>
+              <p style={{ color: 'white'}}>SLIIT, MALABE</p>
+              <p style={{ color: 'white'}}>Phone: 070 438 1222</p>
+            </Col>
+            <Col>
+              <h3>Follow Us</h3>
+              <ul>
+                <li>
+                  <a style={linkStyle} href="#">Facebook</a>
+                </li>
+                <li>
+                  <a style={linkStyle} href="#">Twitter</a>
+                </li>
+                <li>
+                  <a style={linkStyle} href="#">LinkedIn</a>
+                </li>
+              </ul>
             </Col>
           </Row>
         </Container>

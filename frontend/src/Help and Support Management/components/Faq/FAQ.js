@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './FAQ.css';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const FAQ = () => {
@@ -96,6 +96,14 @@ const FAQ = () => {
 
   return (
     <div className="faq-container">
+       <div className="sidebar">
+             
+              <Link to={`/Home`}>View Shuttle</Link>
+              <Link to={``}>View Progress</Link>
+              <Link to={`/SupportHome`}>Help and Support</Link>
+              <Link to={``}>View Salary</Link>
+              <Link to={`/login`}>Log Out</Link>
+            </div>
       <h1 className="faq-title">Frequently Asked Questions</h1>
       <div className="accordion" id="faqAccordion">
         {faqData.map((faq, index) => (

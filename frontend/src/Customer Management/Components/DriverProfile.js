@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import '../css/PersonDetails.css';
-import '../css/profileTable.css';
-import '../css/DropdownMenu.css';
+
 import { Link } from 'react-router-dom';
 import Frame from '../img/Frame.png'
 
@@ -113,15 +111,13 @@ function LecturerProfile() {
                 
                 </tbody>
               </table>
-              <div className="dropdown">
-                  <span className="custom-button">Menu &#9662;</span>
-              <div className="dropdown-content">
-                  
-                   <Link to={`/person/update/${person._id}`}>Update</Link>
-                   <Link to={`/DriverPassenger`}>Passenger List</Link>
-                   <Link to={`/login`}>Log Out</Link>
-              </div>
-              </div>
+             
+              <div className="sidebar">
+              <Link to={`/person/update/${person._id}`}>Update</Link>
+              <Link to={`/DriverPassenger`}>Passenger List</Link>
+              <Link to={`/login`}>Log Out</Link>
+            </div>
+            
             </div>
           </div>
         </div>

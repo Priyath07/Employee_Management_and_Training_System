@@ -1,6 +1,6 @@
 
 import React, { useEffect,useState } from "react";
-import './attendanceStyle.css'
+
 import{Link} from 'react-router-dom'
 import axios from "axios";
 

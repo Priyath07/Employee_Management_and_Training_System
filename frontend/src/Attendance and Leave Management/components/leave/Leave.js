@@ -402,7 +402,6 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Leave.css';
 
 const Leave = () => {
   const [employeeName, setEmployeeName] = useState('');

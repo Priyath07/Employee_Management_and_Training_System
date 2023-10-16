@@ -1,11 +1,10 @@
 import React from 'react';
-import './Home.css'; // Import your CSS file
 import { Link } from "react-router-dom";
 
 const TransportHome = () => {
   return (  
-    <div className="Home-container">
-      <div className="Home-content-container">
+    <div className="home-container">
+      <div className="home-content-container">
         <h1>Welcome To Shuttle Service...</h1>
         <p>
           Explore seamless transportation
@@ -18,10 +17,10 @@ const TransportHome = () => {
           Apply now for a stress-free journey!
         </p>
         <Link to="/LearnMore">
-          <button className="button1">Learn More</button>
+          <button className="home-button learn-more-button">Learn More</button>
         </Link>
         <Link to="/ApplyShuttle">
-          <button className="button1">Apply</button>
+          <button className="home-button apply-button">Apply</button>
         </Link>
       </div>
       
@@ -32,7 +31,6 @@ const TransportHome = () => {
           className="shuttle-image"
         />
       </div>
-     
     </div>
   );
 }
