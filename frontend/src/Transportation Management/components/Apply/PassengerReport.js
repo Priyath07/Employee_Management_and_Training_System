@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './PassengerReport.css'
 
 const PassengerReport = () => {
   const [Applys, setApplys] = useState([]);
@@ -28,13 +27,15 @@ const PassengerReport = () => {
         console.error(error);
       });
   }, []);
+
   const handlePrint = () => {
     window.print();
   };
+
   return (
-    <div>
-      <h1>Passenger Report</h1>
-      <table>
+    <div className="passenger-report-container"> {/* Use a unique class name */}
+      <h1 className="report-title">Passenger Report</h1>
+      <table className="report-table">
         <thead>
           <tr>
             <th>Route</th>
@@ -51,8 +52,8 @@ const PassengerReport = () => {
         </tbody>
       </table>
 
-      <h1>Passenger Details</h1>
-      <table className="shuttle-table">
+      <h1 className="details-title">Passenger Details</h1>
+      <table className="details-table">
         <thead>
           <tr>
             <th>Name</th>
@@ -60,7 +61,6 @@ const PassengerReport = () => {
             <th>PhoneNo</th>
             <th>Route</th>
             <th>PickupLocation</th>
-            
           </tr>
         </thead>
         <tbody>
@@ -71,12 +71,11 @@ const PassengerReport = () => {
               <td>{apply.PhoneNo}</td>
               <td>{apply.Route}</td>
               <td>{apply.PickupLocation}</td>
-              
             </tr>
           ))}
         </tbody>
       </table>
-      <button onClick={handlePrint}>Print</button>
+      <button className="print-button" onClick={handlePrint}>Print</button>
     </div>
   );
 };

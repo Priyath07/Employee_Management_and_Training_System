@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../css/Login.css'
+
 
 
 function Login() {
@@ -60,7 +60,7 @@ function Login() {
               />
             </div>
             <div className="form-group log-form-group">
-              <label htmlFor="nationalId" className='log-label'>Password</label>
+              <label htmlFor="nationalId" className='log-label'>National ID:</label>
               <input
                 type="text"
                 name="nationalId"

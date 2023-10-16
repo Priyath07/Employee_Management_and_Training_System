@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import '../css/PersonDetails.css';
+
 import { Link } from 'react-router-dom';
 
 
@@ -113,7 +113,7 @@ function PersonDetails() {
 
             
               
-              <Link to={`/`}>Back</Link> 
+              <Link to={`/person/nationalId/${person.nationalId}`}>Back</Link> 
               
               
               

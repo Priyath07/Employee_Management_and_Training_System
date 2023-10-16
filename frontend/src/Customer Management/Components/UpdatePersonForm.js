@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import '../css/PersonDetails.css';
+
 
 function UpdatePersonForm() {
+  const { nationalId } = useParams();
   const { id } = useParams();
   const [person, setPerson] = useState({});
   const navigate = useNavigate();
@@ -45,9 +46,9 @@ function UpdatePersonForm() {
   };
 
   return (
-    <div>
-      <h2>Edit Person Details</h2>
-      {isUpdated && <div className="alert">Data Updated</div>}
+    <div className="update-person-form-container">
+      <h2 className="form-title">Edit Person Details</h2>
+      {isUpdated && <div className="alert success-alert">Data Updated</div>}
       <form>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
@@ -95,7 +96,7 @@ function UpdatePersonForm() {
         </div>
         <div className="form-group">
           <label htmlFor="itNumber">IT Number:</label>
-          <input type="text" name="itNumber" value={person.itNumber} readOnly />
+          <input type="text" name="itNumber" value={person.itNumber} onChange={handleChange} />
         </div>
         <div className="form-group">
           <label htmlFor="education">Education:</label>
@@ -105,15 +106,15 @@ function UpdatePersonForm() {
           <label htmlFor="jobExperience">Job Experience:</label>
           <input type="text" name="jobExperience" value={person.jobExperience} onChange={handleChange} />
         </div>
-        <button className='custom-button' type="button" onClick={handleUpdate}>
+        <button className='custom-button update-button' type="button" onClick={handleUpdate}>
           Update
         </button>
         <br/>
         <br/>
        
-        <button className='custom-button'>
-        <Link to={`/`}  >Go to Profile</Link>
-            </button>
+        <button className='custom-button go-back-button'>
+  <Link to={`/`} style={{ color: 'white' }}>Go to Profile</Link>
+</button>
       </form>
     </div>
   );
