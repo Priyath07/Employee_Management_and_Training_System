@@ -49,7 +49,7 @@ const EmployeeManagement = () => {
             <Col>
               <h1>WELCOME TO EMPLOYEE MANAGEMENT SYSTEM</h1>
               <p style={{ color: 'white'}}>Manage your employees with ease.</p>
-              <Button variant="primary" href="/apply">
+              <Button variant="primary" href="/Recruit">
                 APPLY NOW
               </Button>
             </Col>

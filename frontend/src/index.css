@@ -1455,3 +1455,173 @@ p {
 .submit-button:hover {
   background-color: #0056b3;
 }
+
+
+
+/* Recruit container */
+.recruit-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Form fields */
+.form-field {
+  margin-bottom: 10px;
+}
+
+.form-field label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+/* Radio buttons */
+.radio-container {
+  display: flex;
+  align-items: center;
+}
+
+.radio-label {
+  margin-right: 20px;
+  font-weight: normal;
+}
+
+/* CV file input */
+.form-field input[type="file"] {
+  width: 100%;
+  padding: 8px;
+}
+
+/* Submit buttons */
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Submitted data */
+.submitted-data {
+  margin-top: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Download link */
+.download-link {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #007BFF;
+  font-weight: bold;
+}
+
+.download-link:hover {
+  color: #0056b3;
+}
+
+/* Edit and Delete buttons */
+.edit-button,
+.delete-button {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  background-color: #0056b3;
+}
+/* Recruit Detail container */
+.recruit-detail-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Recruit Details */
+.recruit-detail-container h2 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.recruit-detail-container p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+/* Reply Section */
+.reply-section {
+  margin-top: 20px;
+}
+
+.reply-section h3 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.reply-section textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.reply-section button {
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 10px;
+}
+
+.reply-section button:hover {
+  background-color: #0056b3;
+}
+
+/* PDF Download Button */
+.reply-section button:last-child {
+  margin-right: 0;
+}
