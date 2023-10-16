@@ -117,8 +117,8 @@ function LecturerProfile() {
                   <span className="custom-button">Menu &#9662;</span>
               <div className="dropdown-content">
                   
-                   <Link to={`/person/update/${person._id}`}>Update</Link>
-                   <Link to={`/Home`}>View Shuttle</Link>
+                   <Link to={`/person/employee/update/${person._id}`}>Update</Link>
+                   <Link to={`/TransportHome`}>View Shuttle</Link>
                    <Link to={``}>View Progress</Link>
                    <Link to={`/SupportHome`}>Help and Support</Link>
                    <Link to={``}>View Salary</Link>

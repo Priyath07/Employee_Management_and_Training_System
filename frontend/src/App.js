@@ -8,15 +8,15 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import EmployeeManagement from './EmployeeManagement';
 // Transport
 import AddShuttle from './Transportation Management/components/AddShuttle/Shuttle';
+import AllShuttle from './Transportation Management/components/AddShuttle/AllShuttle';
 import Header from './Transportation Management/components/AddShuttle/Header';
-import AllShuttles from './Transportation Management/components/AddShuttle/AllShuttle';
 import ApplyShuttle from './Transportation Management/components/Apply/ApplyShuttle';
 import Passenger from './Transportation Management/components/Apply/Passenger';
 import DriverPassenger from './Transportation Management/components/Apply/DriverPassenger';
 import PassengerReport from './Transportation Management/components/Apply/PassengerReport';
 import TransportHome from './Transportation Management/components/Home/TransportHome';
 import LearnMore from './Transportation Management/components/AddShuttle/LearnMore';
-
+import Shuttle from './Transportation Management/components/AddShuttle/Shuttle';
 // Help
 import AddFeedback from './Help and Support Management/components/Feedback/Feedback';
 import SupportHome from './Help and Support Management/components/SupportHome';
@@ -47,6 +47,7 @@ import PersonList from './Customer Management/Components/PersonList';
 import AddEmployee from './Customer Management/Components/AddEmployee';
 import PersonDetails from './Customer Management/Components/PersonDetails';
 import UpdatePersonForm from './Customer Management/Components/UpdatePersonForm';
+import UpdateEmployee from './Customer Management/Components/UpdateEmployee';
 import Login from './Customer Management/Components/Login';
 import AdminProfile from './Customer Management/Components/AdminProfile';
 import LecturerProfile from './Customer Management/Components/LecturerProfile';
@@ -89,7 +90,8 @@ function App() {
         <Route path="/" element={<EmployeeManagement />} />
  {/* Transport */}
           <Route path="/AddShuttle" exact element={<AddShuttle/>}/>
-          <Route path='/AllShuttles' exact element = {<AllShuttles/>}/>
+          <Route path="/Shuttle" exact element={<Shuttle/>}/>
+          <Route path="/AllShuttle" exact element={<AllShuttle/>}/>
           <Route path="/ApplyShuttle" exact element={<ApplyShuttle/>}/>
           <Route path="/Passenger" exact element={<Passenger/>}/>
           <Route path="/DriverPassenger" exact element={<DriverPassenger/>}/>
@@ -132,7 +134,7 @@ function App() {
         <Route path="/person/employee/itNumber/:itNumber" element={ <EmployeeProfile />}/>
         <Route exact path="/login" element={<Login/>} />
         <Route path="/person/update/:id" element={<UpdatePersonForm />} />
-    
+        <Route path="/person/employee/update/:id" element={<UpdateEmployee />} />
       {/* Awi */}
       
        {/* kavi */}

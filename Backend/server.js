@@ -51,7 +51,7 @@ app.use("/Salary_and_Benefits_Management/employee", employeeSalaryRouter); // Ch
 
 
 const shuttleRouter = require('./routes/TransportationManagement/Shuttles');
-app.use('/project', shuttleRouter);
+app.use('/shuttle', shuttleRouter);
 
 const applyRouter = require('./routes/TransportationManagement/ApplyShuttles');
 app.use('/apply', applyRouter);

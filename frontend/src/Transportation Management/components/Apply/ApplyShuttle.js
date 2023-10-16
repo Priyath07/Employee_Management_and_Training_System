@@ -269,24 +269,24 @@ const ApplyShuttle = () => {
     const apiKey = 'YOUR_GOOGLE_MAPS_API_KEY'; // Replace with your actual Google Maps API Key
 
     axios
-    .get(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${apiKey}`
-    )
-    .then((response) => {
-      const { results } = response.data;
-      if (results.length > 0) {
-        const { geometry } = results[0];
-        const { location } = geometry;
-        const link = `https://www.google.com/maps?q=${location.lat},${location.lng}`; // Create the live location link
-        setLiveLocationLink(link);
-      } else {
-        alert('Location not found. Please check your pickup location.');
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-      alert('Error fetching location. Please try again.');
-    });
+      .get(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=Colombo,+SriLanka&key={AIzaSyCJ4YE3oVAeebRV15VshtKSl8rMPljNba4}`
+      )
+      .then((response) => {
+        const { results } = response.data;
+        if (results.length > 0) {
+          const { geometry } = results[0];
+          const { lat, lng } = geometry.location;
+          const link = `https://www.google.com/maps?q=${lat},${lng}`; // Create the live location link
+          setLiveLocationLink(link);
+        } else {
+          alert('Location not found. Please check your pickup location.');
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        alert('Error fetching location. Please try again.');
+      });
   };
 
   return (
@@ -390,4 +390,5 @@ const ApplyShuttle = () => {
   );
 };
 
-export default ApplyShuttle
+export default ApplyShuttle;
+
