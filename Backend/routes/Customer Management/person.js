@@ -28,6 +28,37 @@ router.get('/personlist', async (req, res) => {
 
 
 
+router.put('/employee/update/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updateData = req.body;
+
+    // Find and update the person by ID
+    const updatedPerson = await Person.findByIdAndUpdate(id, updateData, {
+      new: true, // Return the updated document
+    });
+
+    if (!updatedPerson) {
+      return res.status(404).json({ error: 'Person not found' });
+    }
+
+    return res.json(updatedPerson);
+  } catch (error) {
+    // Handle different types of errors
+    if (error.name === 'ValidationError') {
+      return res.status(400).json({ error: error.message });
+    } else {
+      return res.status(500).json({ error: 'Server error' });
+    }
+  }
+});
+
+
+
+
+
+
+//update admin
 router.put('/update/:id', async (req, res) => {
   try {
     const { id } = req.params;
