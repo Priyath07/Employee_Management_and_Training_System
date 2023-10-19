@@ -69,14 +69,8 @@ import EditEmployee from "./Salary_and_Benefits_Management/components/EditEmploy
 import AdminDashboard from "./Salary_and_Benefits_Management/components/AdminDashboard";
 import Footer from "./Salary_and_Benefits_Management/components/Footer";
    
-//priyath
-import CourseForms from "./Course_Creation_and_Management/component/CourseForms";
-import AddedCourses from "./Course_Creation_and_Management/component/AddedCourses";
-import CourseEdit from "./Course_Creation_and_Management/component/CourseEdit";
-import CourseHome from "./Course_Creation_and_Management/component/CourseHome";
-import CourseDetail from "./Course_Creation_and_Management/component/CourseDetail";
-import CourseBuy from "./Course_Creation_and_Management/component/CourseBuy";
-import PaymentDetailsPage from "./Course_Creation_and_Management/component/PaymentDetailsPage";
+//thisun
+// pages & components
 
 
 function App() {
@@ -152,16 +146,7 @@ function App() {
           <Route path="/add" element={<Footer />} />
         
         
-       {/* priyath */}
-          <Route path="/AddedCourses" exact element={<AddedCourses/>} />
-          <Route path="/Courseadd" exact element={<CourseForms/>} />
-          <Route path="/update/:id" element={<CourseEdit/>}/>
-          <Route path="/course/:id" element={<CourseDetail/>} />
-          <Route path="/course" element={<CourseHome/>} />
-          <Route path="/get/:id" element={<CourseDetail/>} />
-          <Route path="/coursePaymentAdd" element={<CourseBuy/>}/>
-          <Route path="/coursePaymentAll" element={<PaymentDetailsPage/>}/>
-        
+       
         </Routes>
     </BrowserRouter>
     
