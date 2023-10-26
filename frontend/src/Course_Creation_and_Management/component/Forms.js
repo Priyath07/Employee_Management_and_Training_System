@@ -302,18 +302,14 @@ import Form from "react-bootstrap/Form";
 import axios from "axios";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import "./Forms.css"; // Import a CSS file for custom styling
+import "./Forms.css";
 
 function Forms() {
-  // State variables for input values and validation
   const [formData, setFormData] = useState({
     courseID: "",
     courseName: "",
-    descriptionContent: "",
-    durationHours: "",
-    durationMinutes: "",
+    description: "",
+    duration: "",
     courseImage: null,
     price: "",
     lectureName: "",
@@ -330,7 +326,6 @@ function Forms() {
     category: "",
   });
 
-  // Function to handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -338,35 +333,9 @@ function Forms() {
       [name]: value,
     });
 
-    // Real-time validation
     validateField(name, value);
   };
 
-  // Function to handle duration hours change
-  const handleDurationHoursChange = (e) => {
-    const hours = e.target.value;
-    setFormData({
-      ...formData,
-      durationHours: hours,
-    });
-
-    // Real-time validation
-    validateField("duration", hours + ":" + formData.durationMinutes);
-  };
-
-  // Function to handle duration minutes change
-  const handleDurationMinutesChange = (e) => {
-    const minutes = e.target.value;
-    setFormData({
-      ...formData,
-      durationMinutes: minutes,
-    });
-
-    // Real-time validation
-    validateField("duration", formData.durationHours + ":" + minutes);
-  };
-
-  // Function to handle file input change
   const handleImageChange = (e) => {
     const selectedImage = e.target.files[0];
     setFormData({
@@ -374,23 +343,19 @@ function Forms() {
       courseImage: selectedImage,
     });
 
-    // Clear image preview if no file is selected
     if (!selectedImage) {
       document.getElementById("image-preview").src = "";
     }
 
-    // Real-time validation
     validateField("courseImage", selectedImage);
   };
 
-  // Function to reset form and clear input values
   const resetForm = () => {
     setFormData({
       courseID: "",
       courseName: "",
-      descriptionContent: "",
-      durationHours: "",
-      durationMinutes: "",
+      description: "",
+      duration: "",
       courseImage: null,
       price: "",
       lectureName: "",
@@ -408,21 +373,17 @@ function Forms() {
     });
   };
 
-  // Function to handle form submission
   const sendData = (e) => {
     e.preventDefault();
 
-    // Validation logic for input fields
     let isValid = true;
 
-    // Validate all fields one last time before submitting
     for (const key in formData) {
-      if (key !== "duration" && key !== "courseImage") {
+      if (key !== "courseImage") {
         validateField(key, formData[key]);
       }
     }
 
-    // Check if any validation errors exist
     for (const key in formErrors) {
       if (formErrors[key]) {
         isValid = false;
@@ -430,18 +391,12 @@ function Forms() {
       }
     }
 
-    // All fields are valid, send data to the server
     if (isValid) {
-      // Calculate the total duration in minutes
-      const totalDuration =
-        (parseInt(formData.durationHours) || 0) * 60 +
-        (parseInt(formData.durationMinutes) || 0);
-
       const formDataToSend = new FormData();
       formDataToSend.append("courseID", formData.courseID);
       formDataToSend.append("courseName", formData.courseName);
-      formDataToSend.append("description", formData.descriptionContent);
-      formDataToSend.append("duration", totalDuration);
+      formDataToSend.append("description", formData.description);
+      formDataToSend.append("duration", formData.duration);
       formDataToSend.append("courseImage", formData.courseImage);
       formDataToSend.append("price", formData.price);
       formDataToSend.append("lectureName", formData.lectureName);
@@ -449,7 +404,7 @@ function Forms() {
 
       axios
         .post(
-          "http://localhost:8050/Course_Creation_and_Management/course/add",
+          `http://localhost:8050/Course_Creation_and_Management/course/add`,
           formDataToSend,
           {
             headers: {
@@ -466,8 +421,7 @@ function Forms() {
         });
     }
   };
-
-  // Function to validate individual fields
+  
   const validateField = (fieldName, value) => {
     let error = "";
 
@@ -485,8 +439,7 @@ function Forms() {
         }
         break;
       case "duration":
-        const [hours, minutes] = value.split(":");
-        if (isNaN(parseInt(hours)) && isNaN(parseInt(minutes))) {
+        if (!value) {
           error = "Duration is required";
         }
         break;
@@ -522,7 +475,6 @@ function Forms() {
     });
   };
 
-  // Quill modules and formats for rich text editor
   const modules = {
     toolbar: [
       [{ header: "1" }, { header: "2" }, { font: [] }],
@@ -557,7 +509,6 @@ function Forms() {
 
       <Form onSubmit={sendData}>
         <Form.Group className="mb-3" controlId="formBasicCourseID">
-          {/* Course ID Field */}
           <Form.Label className="label-bold label-large">Course ID</Form.Label>
           <Form.Control
             type="text"
@@ -574,7 +525,6 @@ function Forms() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicCourseName">
-          {/* Course Name Field */}
           <Form.Label className="label-bold label-large">Course Name</Form.Label>
           <Form.Control
             type="text"
@@ -591,15 +541,12 @@ function Forms() {
         </Form.Group>
 
         <Form.Group className="mb-7" controlId="formBasicDescription">
-          {/* Description Field */}
           <Form.Label className="label-bold label-large">
             <b>Description</b>
           </Form.Label>
           <ReactQuill
-            value={formData.descriptionContent}
-            onChange={(value) =>
-              setFormData({ ...formData, descriptionContent: value })
-            }
+            value={formData.description}
+            onChange={(value) => setFormData({ ...formData, description: value })}
             modules={modules}
             formats={formats}
             style={{ height: "400px" }}
@@ -607,32 +554,18 @@ function Forms() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicDuration">
-          {/* Duration (Hours:Minutes) Field */}
           <Form.Label className="label-bold label-large">
             Duration (Hours:Minutes)
           </Form.Label>
           <div className="duration-input">
             <Form.Control
               type="number"
-              name="durationHours"
-              placeholder="Hours"
-              value={formData.durationHours}
-              onChange={handleDurationHoursChange}
+              name="duration"
+              placeholder="Hours:Minutes"
+              value={formData.duration}
+              onChange={handleInputChange}
               min="0"
-              className="duration-hours"
-              style={{ width: "100px" }}
-            />
-            <span className="duration-separator">:</span>
-            <Form.Control
-              type="number"
-              name="durationMinutes"
-              placeholder="Minutes"
-              value={formData.durationMinutes}
-              onChange={handleDurationMinutesChange}
-              min="0"
-              max="59"
-              className="duration-minutes"
-              style={{ width: "100px" }}
+              style={{ width: "200px" }}
             />
           </div>
           {formErrors.duration && (
@@ -641,7 +574,6 @@ function Forms() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicCourseImage">
-          {/* Course Image Field */}
           <Form.Label className="label-bold label-large">Course Image</Form.Label>
           <Form.Control
             type="file"
@@ -655,7 +587,6 @@ function Forms() {
             {formErrors.courseImage}
           </Form.Control.Feedback>
 
-          {/* Image Preview */}
           {formData.courseImage && (
             <img
               src={URL.createObjectURL(formData.courseImage)}
@@ -667,7 +598,6 @@ function Forms() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPrice">
-          {/* Price Field */}
           <Form.Label className="label-bold label-large">Price</Form.Label>
           <Form.Control
             type="text"
@@ -684,7 +614,6 @@ function Forms() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicLectureName">
-          {/* Lecture Name Field */}
           <Form.Label className="label-bold label-large">Lecture Name</Form.Label>
           <Form.Control
             type="text"
@@ -701,7 +630,6 @@ function Forms() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicCategory">
-          {/* Category Field */}
           <Form.Label className="label-bold label-large">Category</Form.Label>
           <Form.Control
             type="text"
@@ -725,6 +653,7 @@ function Forms() {
 }
 
 export default Forms;
+
 
 
 

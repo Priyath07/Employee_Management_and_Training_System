@@ -30,7 +30,7 @@ export default function AddedCourses() {
   useEffect(() => {
     function getCourses() {
       axios
-        .get("http://localhost:8050/Course_Creation_and_Management/course/")
+        .get(`http://localhost:8050/Course_Creation_and_Management/course/`)
         .then((res) => {
           console.log(res.data);
           setCourses(res.data)
@@ -103,7 +103,8 @@ export default function AddedCourses() {
               <div className="w-100" />
               <MDBCard>
                 <MDBRipple rippleColor="light" rippleTag="div" className="bg-image hover-overlay">
-                  <MDBCardImage src={course.courseImage} fluid alt="Course Image" />
+                  {/* Display the course image using the courseImage URL */}
+                  <MDBCardImage src={course.courseImage.data} fluid alt="Course Image" />
                   <a>
                     <div className="mask" style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
                   </a>
@@ -118,57 +119,14 @@ export default function AddedCourses() {
                     <div>Lecture Name: {course.lectureName}</div>
                     <div>Category: {course.category}</div>
                   </MDBCardText>
-                  {editingIndex === index ? (
-                    <>
-                      <input
-                        type="text"
-                        placeholder="Course Name"
-                        value={editData.courseName}
-                        onChange={(e) => setEditData({ ...editData, courseName: e.target.value })}
-                      />
-                      <input
-                        type="text"
-                        placeholder="Description"
-                        value={editData.description}
-                        onChange={(e) => setEditData({ ...editData, description: e.target.value })}
-                      />
-                      <input
-                        type="text"
-                        placeholder="Duration"
-                        value={editData.duration}
-                        onChange={(e) => setEditData({ ...editData, duration: e.target.value })}
-                      />
-                      <input
-                        type="text"
-                        placeholder="Price"
-                        value={editData.price}
-                        onChange={(e) => setEditData({ ...editData, price: e.target.value })}
-                      />
-                      <input
-                        type="text"
-                        placeholder="Lecture Name"
-                        value={editData.lectureName}
-                        onChange={(e) => setEditData({ ...editData, lectureName: e.target.value })}
-                      />
-                      <input
-                        type="text"
-                        placeholder="Category"
-                        value={editData.category}
-                        onChange={(e) => setEditData({ ...editData, category: e.target.value })}
-                      />
-                    </>
-                  ) : null}
-                  {editingIndex === index ? (
-                    <div className="button-group">
-                      <MDBBtn color="primary" onClick={handleSave}>Save</MDBBtn>
-                      <MDBBtn color="secondary" onClick={() => setEditingIndex(-1)}>Cancel</MDBBtn>
-                    </div>
-                  ) : (
-                    <div className="button-group">
-                      <MDBBtn color="warning" onClick={() => handleEdit(index)}>Edit</MDBBtn>
-                      <MDBBtn color="danger" onClick={() => handleDelete(index)}>Delete</MDBBtn>
-                    </div>
-                  )}
+                  <Link to={`/update/${course.courseID}`} className="btn btn-success">
+                    <i className="fas fa-pen" /> Edit
+                  </Link>
+
+                  <button className="btn btn-danger" onClick={() => handleDelete(index)}>
+                    <i className="fas fa-trash" /> Delete
+                  </button>
+
                 </MDBCardBody>
               </MDBCard>
             </MDBCol>

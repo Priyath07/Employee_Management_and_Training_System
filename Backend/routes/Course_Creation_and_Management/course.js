@@ -170,39 +170,31 @@ const multer = require("multer");
 const path = require("path");
 const Course = require("../../models/Course_Creation_and_Management/Course"); // Adjust the path to your Course model
 
+const fs = require("fs");
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'uploads/');
+        cb(null, 'uploads')
     },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname));
-    },
-});
+    filename: (req, file, cb) =>
+        cb(null, file.originalname)
+})
 
-const upload = multer({ storage });
+const upload = multer({ storage: storage });
 
-// Create a new course
-router.post("/add", upload.single('courseImage'), (req, res) => {
-    const {
-        courseID,
-        courseName,
-        description,
-        duration,
-        courseImage,
-        price,
-        lectureName,
-        category
-    } = req.body;
-
-    const newCourse = new Course({
-        courseID,
-        courseName,
-        description,
-        duration,
-        courseImage,
-        price,
-        lectureName,
-        category
+router.route("/add").post(upload.single('courseImage'), (req, res) => {
+    const newCourse = new Course({  // Replace "new UploadImage" with "new Course"
+        courseImage: {
+            data: fs.readFileSync(req.file.path),
+            contentType: req.file.mimetype
+        },
+        courseID: req.body.courseID,
+        courseName: req.body.courseName,
+        description: req.body.description,
+        duration: req.body.duration,
+        price:req.body.price,
+        lectureName: req.body.lectureName,
+        category: req.body.category,
     });
 
     newCourse.save()
@@ -211,9 +203,10 @@ router.post("/add", upload.single('courseImage'), (req, res) => {
         })
         .catch((err) => {
             console.log(err);
-            res.status(500).json({ error: err.message });
+            res.status(500).json({ error: "Server error" });
         });
 });
+
 
 // Read / Data view
 router.route("/").get((req, res) => {
@@ -236,7 +229,7 @@ router.route("/update/:id").put(async (req, res) => {
         courseName,
         description,
         duration,
-        addedDate,
+        //addedDate,
         courseImage,
         price,
         lectureName,
@@ -248,7 +241,7 @@ router.route("/update/:id").put(async (req, res) => {
         courseName,
         description,
         duration,
-        addedDate,
+        //addedDate,
         courseImage,
         price,
         lectureName,

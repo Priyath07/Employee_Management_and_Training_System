@@ -70,7 +70,7 @@ function Navrbar() {
                 </a> */}
                 <Link to="/add" className="nav-link active" aria-current="page">Create Course</Link>
               </li>
-              <li class="nav-item dropdown">
+              {/* <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
                   href="/lectureProfile"
@@ -81,37 +81,35 @@ function Navrbar() {
                   Lecture
                 </a>
                 <ul class="dropdown-menu">
-                  <li>
+                  <li> */}
                     {/* <a class="dropdown-item" href="/lectureProfile">
                       Profile
                     </a> */}
-                    <Link to="/lectureProfile" className="dropdown-item" aria-current="page">Profile</Link>
+                    {/* <Link to="/lectureProfile" className="dropdown-item" aria-current="page">Profile</Link>
                   </li>
-                  <li>
+                  <li> */}
                     {/* <a class="dropdown-item" href="/add">
                       Forms
                     </a> */}
-                    <Link to="/addLecture" className="dropdown-item" aria-current="page">Add Lecture</Link>
+                    {/* <Link to="/addLecture" className="dropdown-item" aria-current="page">Add Lecture</Link>
                   </li>
                   <li>
                     <hr class="dropdown-divider" />
                   </li>
-                  <li>
+                  <li> */}
                     {/* <a class="dropdown-item" href="/list">
                       List
                     </a> */}
-                    <Link to="/lectureList" className="dropdown-item" aria-current="page">List</Link>
-                  </li>
-                </ul>
+                    {/* <Link to="/lectureList" className="dropdown-item" aria-current="page">List</Link>
+                  </li> */}
+                {/* </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">
-                  0
-                </a>
-              </li>
+              <Link to="/CourseHome" className="dropdown-item" aria-current="page">Course Home</Link>
+              </li> */}
             </ul>
             <form class="d-flex" onSubmit={handleSearch}>
-        <input
+        {/* <input
           class="form-control me-2"
           type="search"
           placeholder="Search"
@@ -121,7 +119,7 @@ function Navrbar() {
         />
         <button class="btn btn-outline-success" type="submit">
           Search
-        </button>
+        </button> */}
       </form>
 
       {searchResults.length > 0 && (

@@ -44,16 +44,14 @@ const courseSchema = new Schema({
         type: String,
         required: true
     },
-    addedDate: {
-        type: Date,
-        default: Date.now // Set the default value to the current date and time
-    },
+    
     courseImage: {
-        type: String, // You might want to use a different type like Buffer if you're storing binary data
-        required: true
+        data: Buffer,
+        contenttype: String, // You might want to use a different type like Buffer if you're storing binary data
+        //required: true
     },
     price: {
-        type: Number,
+        type: String,
         required: true
     },
     lectureName: {
