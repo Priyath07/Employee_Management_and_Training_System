@@ -86,7 +86,7 @@ function AdminProfile() {
           </div>
           <div className="user-details-column">
             <label className="person-contact" htmlFor="contact">
-              CONTACT DETAILS
+              CONTACT DETAILs
             </label>
             <table className="table2">
               <tbody>
