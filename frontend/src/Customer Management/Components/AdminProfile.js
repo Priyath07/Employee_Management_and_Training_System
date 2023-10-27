@@ -37,8 +37,8 @@ function AdminProfile() {
         <Link to={`/Passenger`}>View Passenger</Link>
         <Link to={`/DriverPassenger`}>Driver Passenger List</Link>
         <Link to={`/report`}>View Passenger Report</Link>
-        <Link to={`/`}>View Attendance</Link>
-        <Link to={``}>View Leave</Link>
+        <Link to={`/attendance`}>View Attendance</Link>
+        <Link to={`/leave`}>View Leave</Link>
         <Link to={`/login`}>Log Out</Link>
       </div>
       {loading ? (
@@ -86,7 +86,7 @@ function AdminProfile() {
           </div>
           <div className="user-details-column">
             <label className="person-contact" htmlFor="contact">
-              CONTACT DETAILs
+              CONTACT DETAILS
             </label>
             <table className="table2">
               <tbody>
