@@ -48,7 +48,7 @@ const courseSchema = new Schema({
     courseImage: {
         data: Buffer,
         contenttype: String, // You might want to use a different type like Buffer if you're storing binary data
-        //required: true
+        // required: true
     },
     price: {
         type: String,

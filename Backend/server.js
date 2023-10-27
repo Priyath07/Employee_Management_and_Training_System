@@ -12,6 +12,8 @@ const PORT = process.env.PORT || 8050; //create port number // an ||(or) means i
 app.use(cors());
 app.use(bodyParser.json()); //why use json- it's use to key values paire.
 
+app.use('/uploads', express.static('uploads'));
+
 const URL = process.env.MONGODB_URL;
 
 mongoose.connect(URL,{

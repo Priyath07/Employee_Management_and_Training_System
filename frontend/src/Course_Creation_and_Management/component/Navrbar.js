@@ -1,6 +1,9 @@
-//import React from "react";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
+import "./CourseNavbar.css";
+
+import logo from './images/Logo.png';
 
 function Navrbar() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -40,13 +43,14 @@ function Navrbar() {
 
   return (
     <div>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#">
+            <img src={logo} alt="Logo" className="logo" />
             EnterPrise Pro
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -54,90 +58,35 @@ function Navrbar() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                {/* <a class="nav-link active" aria-current="page" href="/">
-                  Home
-                </a> */}
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
                 <Link to="/" className="nav-link active" aria-current="page">Home</Link>
               </li>
-              <li class="nav-item">
-                {/* <a class="nav-link" href="/add">
-                  Forms
-                </a> */}
+              <li className="nav-item">
                 <Link to="/add" className="nav-link active" aria-current="page">Create Course</Link>
               </li>
-              {/* <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="/lectureProfile"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Lecture
-                </a>
-                <ul class="dropdown-menu">
-                  <li> */}
-                    {/* <a class="dropdown-item" href="/lectureProfile">
-                      Profile
-                    </a> */}
-                    {/* <Link to="/lectureProfile" className="dropdown-item" aria-current="page">Profile</Link>
-                  </li>
-                  <li> */}
-                    {/* <a class="dropdown-item" href="/add">
-                      Forms
-                    </a> */}
-                    {/* <Link to="/addLecture" className="dropdown-item" aria-current="page">Add Lecture</Link>
-                  </li>
-                  <li>
-                    <hr class="dropdown-divider" />
-                  </li>
-                  <li> */}
-                    {/* <a class="dropdown-item" href="/list">
-                      List
-                    </a> */}
-                    {/* <Link to="/lectureList" className="dropdown-item" aria-current="page">List</Link>
-                  </li> */}
-                {/* </ul>
-              </li>
-              <li class="nav-item">
-              <Link to="/CourseHome" className="dropdown-item" aria-current="page">Course Home</Link>
-              </li> */}
             </ul>
-            <form class="d-flex" onSubmit={handleSearch}>
-        {/* <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-        <button class="btn btn-outline-success" type="submit">
-          Search
-        </button> */}
-      </form>
-
-      {searchResults.length > 0 && (
-        <div>
-          <p>Sorted by: {sortField}</p>
-          <button onClick={() => handleSort("price")}>Sort by Price</button>
-          <button onClick={() => handleSort("duration")}>Sort by Duration</button>
-
-          {/* Display search results here */}
-          <ul>
-            {searchResults.map((course) => (
-              <li key={course.courseID}>
-                <Link to={`/course/${course.courseID}`}>{course.courseName}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+            <form className="d-flex" onSubmit={handleSearch}>
+              {/* Add your search input field and submit button here */}
+            </form>
+            {searchResults.length > 0 && (
+              <div>
+                <p>Sorted by: {sortField}</p>
+                <button onClick={() => handleSort("price")}>Sort by Price</button>
+                <button onClick={() => handleSort("duration")}>Sort by Duration</button>
+                {/* Display search results here */}
+                <ul>
+                  {searchResults.map((course) => (
+                    <li key={course.courseID}>
+                      <Link to={`/course/${course.courseID}`}>{course.courseName}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </nav>
