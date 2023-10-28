@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
+import headerImageURL from './images/Logo.png';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 
 function PaymentDetailsPage() {
     const [paymentDetails, setPaymentDetails] = useState([]);
@@ -24,7 +27,7 @@ function PaymentDetailsPage() {
         const reportData = paymentDetails.map((payment, index) => ({
             courseID: payment.courseID,
             courseName: payment.courseName,
-            amount: typeof payment.amount === 'number' ? `$${payment.amount.toFixed(2)}` : 'N/A',
+            amount:  payment.amount,
             paymentDate: new Date(payment.paymentDate).toLocaleDateString(),
         }));
 
@@ -91,6 +94,51 @@ function PaymentDetailsPage() {
         document.body.removeChild(a);
     };
 
+    //report generating
+    const generatePDF = () => {
+        // Define reportData by mapping paymentDetails
+        const reportData = paymentDetails.map((payment, index) => ({
+            courseID: payment.courseID,
+            courseName: payment.courseName,
+            amount: payment.amount,
+            paymentDate: new Date(payment.paymentDate).toLocaleDateString(),
+        }));
+
+        const pdfDoc = new jsPDF();
+
+        const imgWidth = 40;
+        const imgHeight = 40;
+        pdfDoc.addImage(headerImageURL, 'PNG', 85, 15, imgWidth, imgHeight);
+
+        pdfDoc.setFontSize(18);
+        pdfDoc.setTextColor(0, 0, 0);
+        pdfDoc.text('Course Payment Details', 15, 70);
+
+        const headers = ['Course ID', 'Course Name', 'Amount($)'];
+
+        const data = reportData.map((data) => [
+            data.courseID,
+            data.courseName,
+            data.amount,
+            data.paymentDate,
+        ]);
+
+        const autoTableConfig = {
+            startY: 80,
+            head: [headers],
+        };
+
+        pdfDoc.autoTable({ ...autoTableConfig, body: data });
+
+        // Add the printed date to the footer
+        const printedDate = new Date().toLocaleDateString();
+        pdfDoc.setFontSize(12);
+        pdfDoc.setTextColor(0, 0, 0);
+        pdfDoc.text(`Printed on: ${printedDate}`, 15, pdfDoc.internal.pageSize.height - 15);
+
+        pdfDoc.save('PaymentDetailsReport.pdf');
+    };
+
     return (
         <div>
             <h2>Payment Details</h2>
@@ -99,7 +147,7 @@ function PaymentDetailsPage() {
                     <tr>
                         <th>Course ID</th>
                         <th>Course Name</th>
-                        <th>Amount</th>
+                        <th>Amount($)</th>
                         <th>Payment Date</th>
                     </tr>
                 </thead>
@@ -108,16 +156,14 @@ function PaymentDetailsPage() {
                         <tr key={index}>
                             <td>{payment.courseID}</td>
                             <td>{payment.courseName}</td>
-                            <td>{typeof payment.amount === 'number' ? `$${payment.amount.toFixed(2)}` : 'N/A'}</td>
+                            <td>{payment.amount}</td>
                             <td>{new Date(payment.paymentDate).toLocaleDateString()}</td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-        
-            <button className="btn btn-primary" onClick={generateReport}>
-                Generate Report
-            </button>
+
+            <button className="btn btn-primary" onClick={generatePDF}>Generate PDF Report</button>
 
             <Link to={`/course`} className="btn btn-primary">
                 Back

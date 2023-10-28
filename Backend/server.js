@@ -174,13 +174,19 @@ app.listen(PORT, () => {
   console.log(`Server is up and running on port number: ${PORT}`);
 });
 
+
+//priyath
+
 const courseRouter = require("./routes/Course_Creation_and_Management/course.js");
 app.use("/Course_Creation_and_Management/course", courseRouter);
-
-const lecture = require('./routes/Course_Creation_and_Management/lecture.js');
-app.use('/Course_Creation_and_Management/lecture', lecture);
 
 // Include your payment routes
 const paymentRoutes = require(`./routes/Course_Creation_and_Management/CoursePaymnet.js`);
 app.use("/Course_Creation_and_Management/CoursePayment", paymentRoutes);
 
+app.use(express.static(`uploads`))
+
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
+
+app.use('/uploads', express.static('uploads'));

@@ -70,8 +70,11 @@ import AdminDashboard from "./Salary_and_Benefits_Management/components/AdminDas
 import Footer from "./Salary_and_Benefits_Management/components/Footer";
    
 //priyath
-import CourseForms from "./Course_Creation_and_Management/component/CourseForms";
+
+
+
 import AddedCourses from "./Course_Creation_and_Management/component/AddedCourses";
+// import Forms from "./Course_Creation_and_Management/component/Forms";
 import CourseEdit from "./Course_Creation_and_Management/component/CourseEdit";
 import CourseHome from "./Course_Creation_and_Management/component/CourseHome";
 import CourseDetail from "./Course_Creation_and_Management/component/CourseDetail";
@@ -135,7 +138,7 @@ function App() {
         <Route exact path="/login" element={<Login/>} />
         <Route path="/person/update/:id" element={<UpdatePersonForm />} />
         <Route path="/person/employee/update/:id" element={<UpdateEmployee />} />
-      {/* Awi */}
+    
       
        {/* kavi */}
        <Route exact path="/Recruit" element={<Recruit/>} />
@@ -144,7 +147,7 @@ function App() {
       <Route path="/Resigning" element={<Resigning/>} />
       <Route path="/AllResigning" element={<AllResigning/>} />
                
-    
+      {/* Awi */}
       <Route path="/p" element={<AdminDashboard />} />
           <Route path="/add" element={<Forms />} />
           <Route path="/ItemList" element={<ItemList />} />
@@ -153,14 +156,16 @@ function App() {
         
         
        {/* priyath */}
-          <Route path="/AddedCourses" exact element={<AddedCourses/>} />
-          <Route path="/Courseadd" exact element={<CourseForms/>} />
-          <Route path="/update/:id" element={<CourseEdit/>}/>
-          <Route path="/course/:id" element={<CourseDetail/>} />
-          <Route path="/course" element={<CourseHome/>} />
-          <Route path="/get/:id" element={<CourseDetail/>} />
-          <Route path="/coursePaymentAdd" element={<CourseBuy/>}/>
-          <Route path="/coursePaymentAll" element={<PaymentDetailsPage/>}/>
+     
+        <Route path="/AddedCourses" element={<AddedCourses />} />
+           <Route path="/addForms" element={<Forms />} />
+           <Route path="/update/:id" element={<CourseEdit />} />
+           <Route path="/course/:id" element={<CourseDetail />} />
+           <Route path="/course" element={<CourseHome />} />
+           <Route path="/get/:id" element={<CourseDetail />} />
+          <Route path="/coursePaymentAdd" element={<CourseBuy />} />
+          <Route path="/coursePaymentAll" element={<PaymentDetailsPage />} />
+      
         
         </Routes>
     </BrowserRouter>

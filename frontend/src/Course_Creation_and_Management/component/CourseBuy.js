@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import './CourseBuy.css';
+//import headerImageURL from './images/Logo.png'
 
 function CourseBuy() {
     const [courseID, setCourseID] = useState('');
@@ -10,6 +11,7 @@ function CourseBuy() {
     const [paymentDate, setPaymentDate] = useState('');
     const [bankSlip, setBankSlip] = useState(null);
     const [errors, setErrors] = useState({});
+    const [submittedData, setSubmittedData] = useState(null);
 
     const courseOptions = [
         { id: 'IT2060', name: 'Software Engineer' },
@@ -86,6 +88,14 @@ function CourseBuy() {
                     console.log('Server Response:', response.data);
 
                     if (response.data.success) {
+                        setSubmittedData({
+                            courseID,
+                            courseName,
+                            amount,
+                            paymentDate,
+                            bankSlip,
+                        });
+
                         window.alert('Payment has been successfully added!');
                     } else {
                         window.alert('Payment could not be added. Please try again.');
@@ -98,8 +108,28 @@ function CourseBuy() {
         }
     };
 
+    const Report = () => {
+        if (!submittedData) {
+            return null;
+        }
+
+        return (
+            <div className="report-container">
+                <h2>Submitted Data</h2>
+                <p><strong>Course ID:</strong> {submittedData.courseID}</p>
+                <p><strong>Course Name:</strong> {submittedData.courseName}</p>
+                <p><strong>Amount:</strong> {submittedData.amount}</p>
+                <p><strong>Payment Date:</strong> {submittedData.paymentDate}</p>
+                <p><strong>Bank Slip:</strong> {submittedData.bankSlip}</p>
+            </div>
+        );
+    };
+
+    
+
     return (
         <div className="form-container">
+            <h1>Course Payment</h1>
             <form onSubmit={handleFormSubmit}>
                 <div className="form-group">
                     <label htmlFor="courseID">Course ID</label>
@@ -118,7 +148,7 @@ function CourseBuy() {
                     </select>
                     {errors.courseID && <span className="error-text">{errors.courseID}</span>}
                 </div>
-
+    
                 <div className="form-group">
                     <label htmlFor="courseName">Course Name</label>
                     <select
@@ -136,7 +166,7 @@ function CourseBuy() {
                     </select>
                     {errors.courseName && <span className="error-text">{errors.courseName}</span>}
                 </div>
-
+    
                 <div className="form-group">
                     <label htmlFor="amount">Amount</label>
                     <input
@@ -149,7 +179,7 @@ function CourseBuy() {
                     />
                     {errors.amount && <span className="error-text">{errors.amount}</span>}
                 </div>
-
+    
                 <div className="form-group">
                     <label htmlFor="paymentDate">Payment Date</label>
                     <input
@@ -161,7 +191,7 @@ function CourseBuy() {
                     />
                     {errors.paymentDate && <span className="error-text">{errors.paymentDate}</span>}
                 </div>
-
+    
                 <div className="form-group">
                     <label htmlFor="bankSlip">Bank Slip</label>
                     <input
@@ -173,14 +203,17 @@ function CourseBuy() {
                     />
                     {errors.bankSlip && <span className="error-text">{errors.bankSlip}</span>}
                 </div>
-
-                <button type="submit" className="submit-button">
+    
+                <button type="submit" className="submit-button" style={{ width: '150px', height: '40px' }}>
                     Submit Payment
                 </button>
-                <Link to={`/coursePaymentAll`} className="btn btn-primary">
-                  Payment Details
-                  </Link>
+                <br />
+                <br />
+                <Link to="/coursePaymentAll" className="btn btn-primary" style={{ width: '150px', height: '40px' }}>
+                    Details
+                </Link>
             </form>
+            <Report />
         </div>
     );
 }

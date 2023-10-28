@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const Person = require('../../models/Customer Management/person');
-const bcrypt = require('bcrypt');
+
 const jwt = require('jsonwebtoken');
 
 // Create a new person

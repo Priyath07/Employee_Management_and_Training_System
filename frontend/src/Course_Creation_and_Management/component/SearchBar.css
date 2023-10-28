@@ -1,0 +1,39 @@
+.custom-search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 10px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add box shadow */
+  }
+  
+  .custom-search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+  }
+  
+  .search-icon {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #999;
+  }
+  
+  .title {
+    text-align: center; /* Center the text */
+    font-size: 64px; /* Adjust the font size */
+    color: #333; /* Text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a shadow */
+    /* You can adjust the shadow values for the desired effect */
+  }
+  .carousel-image {
+    height: 500px; /* Set the desired height for all images */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+  }
+  .carousel-with-shadow {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Adjust the shadow properties as needed */
+  }
+  
+  

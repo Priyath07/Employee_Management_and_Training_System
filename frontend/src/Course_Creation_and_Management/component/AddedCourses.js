@@ -13,6 +13,7 @@ import {
 } from 'mdb-react-ui-kit';
 import { Link } from "react-router-dom"; // Import Link
 
+
 export default function AddedCourses() {
   const [courses, setCourses] = useState([]);
   const [editingIndex, setEditingIndex] = useState(-1);
@@ -104,7 +105,7 @@ export default function AddedCourses() {
               <MDBCard>
                 <MDBRipple rippleColor="light" rippleTag="div" className="bg-image hover-overlay">
                   {/* Display the course image using the courseImage URL */}
-                  <MDBCardImage src={course.courseImage.data} fluid alt="Course Image" />
+                  <MDBCardImage src={`../../../../Backend/uploads/${course.courseImage}`} fluid alt={course.courseName} />
                   <a>
                     <div className="mask" style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
                   </a>
@@ -115,7 +116,7 @@ export default function AddedCourses() {
                     <div>Course ID: {course.courseID}</div><br></br>
                     <div>Description: {course.description}</div><br></br>
                     <div>Duration: {course.duration}</div>
-                    <div>Price: ${course.price}</div>
+                    <div>Price: {course.price}</div>
                     <div>Lecture Name: {course.lectureName}</div>
                     <div>Category: {course.category}</div>
                   </MDBCardText>

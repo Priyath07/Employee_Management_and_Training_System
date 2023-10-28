@@ -14,6 +14,22 @@ import {
   MDBCarouselItem,
 } from 'mdb-react-ui-kit';
 import { Link } from "react-router-dom";
+import Carousel from 'react-bootstrap/Carousel';
+
+import "./SearchBar.css";
+
+import image1 from './images/Image1.png';
+import image2 from './images/Image2.jpg';
+import image3 from './images/Image4.jpg';
+
+const buyButtonStyle = {
+  backgroundColor: "blue", // Change to your desired color
+  marginRight: "10px", // Add right margin for spacing
+};
+
+const seeMoreButtonStyle = {
+  backgroundColor: "#DFA75A", // Change to your desired color
+};
 
 export default function CourseHome() {
 
@@ -47,10 +63,10 @@ export default function CourseHome() {
   }, []);
 
   // Filter the courses
-const filteredCourses = courses.filter((course) => {
-  const courseName = course.courseName.toLowerCase(); 
-  return courseName.includes(searchQuery.toLowerCase());
-});
+  const filteredCourses = courses.filter((course) => {
+    const courseName = course.courseName.toLowerCase();
+    return courseName.includes(searchQuery.toLowerCase());
+  });
 
   const handleEdit = (index) => {
     setEditingIndex(index);
@@ -104,41 +120,63 @@ const filteredCourses = courses.filter((course) => {
 
   return (
     <MDBContainer>
-      <MDBCarousel showControls showIndicators>
-        <MDBCarouselItem
-          className='w-100 d-block'
-          itemId={1}
-          src='https://mdbootstrap.com/img/new/slides/041.jpg'
-          alt='...'
-        >
-          <h5>Perfect Jurney</h5>
-          <p></p>
-        </MDBCarouselItem>
-        <MDBCarouselItem
-          className='w-100 d-block'
-          itemId={2}
-          src='https://mdbootstrap.com/img/new/slides/042.jpg'
-          alt='...'
-        >
-          <h5>Creativity</h5>
-          <p>.</p>
-        </MDBCarouselItem>
-        <MDBCarouselItem
-          className='w-100 d-block'
-          itemId={3}
-          src='https://mdbootstrap.com/img/new/slides/047.jpg'
-          alt='...'
-        >
-          <h5>Success</h5>
-          <p></p>
-        </MDBCarouselItem>
-      </MDBCarousel>
-      <h1>New Added Courses</h1>
+      <Carousel data-bs-theme="dark" className="carousel-with-shadow">
+  <Carousel.Item>
+    <img
+      className="d-block w-100 carousel-image"
+      src={image1}
+      alt="First slide"
+    />
+    <Carousel.Caption>
+      <h5>First slide label</h5>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item>
+    <img
+      className="d-block w-100 carousel-image"
+      src={image2}
+      alt="Second slide"
+    />
+    <Carousel.Caption>
+      <h5>Second slide label</h5>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item>
+    <img
+      className="d-block w-100 carousel-image"
+      src={image3}
+      alt="Third slide"
+    />
+    <Carousel.Caption>
+      <h5>Third slide label</h5>
+      <p>
+        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+      </p>
+    </Carousel.Caption>
+  </Carousel.Item>
+</Carousel>
+
+
+      <br></br>
+      <h1 class="title">New Courses</h1>
+
       <br></br>
       <div>
-        <input type="text" placeholder="Search by Course Name " value={searchQuery} onChange={(e) => setSearchQueary(e.target.value)} className="form-control mb-2"/>
+        <div className="custom-search-bar">
+          <input
+            type="text"
+            placeholder="Search by Course Name"
+            value={searchQuery}
+            onChange={(e) => setSearchQueary(e.target.value)}
+          />
+          <span className="search-icon">&#128269;</span>
+        </div>
       </div>
-      <br/>
+
+
+      <br />
       <div className="row">
         {filteredCourses.map((course, index) => (
           <div key={index} className="col-md-4 mb-4">
@@ -161,15 +199,12 @@ const filteredCourses = courses.filter((course) => {
                     <div>Lecture Name: {course.lectureName}</div>
                     <div>Category: {course.category}</div>
                   </MDBCardText>
-                  {/* <Link to={`/update/${course.courseID}`} className="btn btn-success">
-                    <i className="fas fa-pen" /> Edit
-                  </Link> */}
-                  {/* <button className="btn btn-primary">Buy Now</button> */}
-                  <Link to={`/coursePaymentAdd`} className="btn btn-primary">
-                  Buy Now
+
+                  <Link to={`/coursePaymentAdd`} className="btn btn-primary" style={buyButtonStyle}>
+                    Buy Now
                   </Link>
-                  <Link to={`/get/${course.courseID}`} className="btn btn-info">
-                        See More
+                  <Link to={`/get/${course.courseID}`} className="btn btn-info" style={seeMoreButtonStyle} >
+                    See More
                   </Link>
                 </MDBCardBody>
               </MDBCard>
