@@ -69,7 +69,7 @@ import EditEmployee from "./Salary_and_Benefits_Management/components/EditEmploy
 import AdminDashboard from "./Salary_and_Benefits_Management/components/AdminDashboard";
 import Footer from "./Salary_and_Benefits_Management/components/Footer";
    
-//priyath
+//priya
 import CourseForms from "./Course_Creation_and_Management/component/CourseForms";
 import AddedCourses from "./Course_Creation_and_Management/component/AddedCourses";
 import CourseEdit from "./Course_Creation_and_Management/component/CourseEdit";
