@@ -1,0 +1,25 @@
+.center-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh; /* Adjust this if needed for vertical centering */
+  }
+  
+  .center-title h1 {
+    font-family: "Arial", sans-serif; /* Replace with your desired font family */
+    font-size: 48px; /* Adjust the font size as needed */
+    font-weight: bold; /* Adjust the font weight as needed */
+    color: #333; /* Set the color to your preferred text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a shadow with offset and color */
+  }
+  
+  .button-spacing {
+    margin-right: 10px; /* Adjust the margin as needed */
+  }
+  
+  .center-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh; /* Adjust this if needed for vertical centering */
+  }
